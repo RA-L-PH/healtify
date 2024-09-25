@@ -1,32 +1,63 @@
 import { useEffect, useState } from 'react';
 import { getDiseaseAdvice, getAllDiseases } from '../../api/healthApi';
+import Fuse from 'fuse.js';
+import ProgressBar from '../ProgressBar'; // Import the ProgressBar component
 
 function HealthAnalysis() {
   const [symptoms, setSymptoms] = useState('');
   const [analysis, setAnalysis] = useState('');
   const [diseases, setDiseases] = useState([]);
+  const [fuse, setFuse] = useState(null);
 
   useEffect(() => {
-    // Load all possible diseases when the component mounts
-    const fetchDiseases = async () => {
+    const fetchDiseasesAndSymptoms = async () => {
       const allDiseases = await getAllDiseases();
       setDiseases(allDiseases);
+
+      const allSymptoms = allDiseases.flatMap(disease => disease.symptoms);
+
+      const fuseInstance = new Fuse(allSymptoms, {
+        threshold: 0.3,
+        distance: 100,
+        minMatchCharLength: 2,
+      });
+      setFuse(fuseInstance);
     };
-    fetchDiseases();
+
+    fetchDiseasesAndSymptoms();
   }, []);
 
   const handleSymptomChange = (event) => {
     setSymptoms(event.target.value);
   };
 
-const handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    const symptomArray = symptoms.split(',').map(symptom => symptom.trim());
-    const results = getDiseaseAdvice(symptomArray);
+
+    function normalizeSymptoms(input) {
+      return input
+        .toLowerCase()
+        .replace(/[^a-z, ]/g, '')
+        .split(',')
+        .map(symptom => symptom.trim())
+        .sort()
+        .join(', ');
+    }
+
+    const normalizedSymptoms = normalizeSymptoms(symptoms);
+    const symptomArray = normalizedSymptoms.split(',').map(symptom => symptom.trim());
+
+    const matchedSymptoms = symptomArray.map(symptom => {
+      const results = fuse.search(symptom);
+      return results.length > 0 ? results[0].item : symptom;
+    });
+
+    const results = getDiseaseAdvice(matchedSymptoms);
     setAnalysis(results.map((result, index) => (
       <div key={index} className="mb-4">
         <h3 className="text-lg font-semibold">{result.disease}</h3>
         <p>{result.advice}</p>
+        <ProgressBar percentage={result.matchPercentage} /> {/* Display the progress bar */}
       </div>
     )));
   };
