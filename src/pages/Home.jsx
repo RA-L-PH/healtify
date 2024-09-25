@@ -19,7 +19,7 @@ const Home = () => {
             <img src={chatbotImage} alt="Chatbot" className="w-32 h-32 mx-auto mb-4" />
             <h3 className="text-xl font-semibold mb-2">Chat with AI</h3>
             <p className="mb-4">Describe your symptoms and get instant feedback from our AI.</p>
-            <Link to="/chat" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300">Start Chat</Link>
+            <Link to="/chatbot" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300">Start Chat</Link>
           </div>
 
           <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">

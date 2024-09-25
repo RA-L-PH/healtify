@@ -1,6 +1,6 @@
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import Chat from './components/Chat';  
 import Home from "./pages/Home";
+import Chatbot from "./components/Chatbot";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
           <h1 className="text-2xl font-bold font-inter">Healthify</h1>
         </Link>
         <div className="flex gap-4">
-          <Link to="/chat">
+          <Link to="/chatbot">
             <h1 className="bg-blue-500 text-white px-4 py-2 rounded-md">Chat</h1>
           </Link>
         </div>
@@ -19,7 +19,7 @@ function App() {
       <main className="container">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/chat" element={<Chat />} />
+          <Route path="/chatbot" element={<Chatbot />} />
         </Routes>
       </main>
       

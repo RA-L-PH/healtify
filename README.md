@@ -9,4 +9,5 @@ Currently, two official plugins are available:
 
 
 Installation:
-reactt-router-dom
+react-router-dom
+axios
