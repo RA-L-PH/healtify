@@ -4,6 +4,7 @@ import Chatbot from "./components/Chatbot";
 
 function App() {
   return (
+    <div className="flex flex-col min-h-screen bg-gray-100">
     <BrowserRouter>
       <header className="flex justify-between items-center border border-gray-600 px-4 py-2 bg-white">
         <Link to='/'>
@@ -16,17 +17,18 @@ function App() {
         </div>
       </header>
 
-      <main className="container">
+      <main className="container flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/chatbot" element={<Chatbot />} />
         </Routes>
       </main>
       
+    </BrowserRouter>
       <footer className="w-full py-4 text-center bg-gray-200">
         <p className="text-gray-600">© 2024 HealthBot. All rights reserved.</p>
       </footer>
-    </BrowserRouter>
+    </div>
   );
 }
 
