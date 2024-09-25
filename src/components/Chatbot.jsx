@@ -1,9 +1,7 @@
 import { useState } from 'react';
-import { getChatbotResponse } from '../api/healthApi';
-import MessageList from './MessageList';
-import InputBox from './InputBox';
-import { Input } from "@/components/ui/input"
-
+import  GeminiAPI, {getChatbotResponse} from '../api/GeminiAPI'; // Import the GeminiAPI component
+import MessageList from './MessageList.jsx';
+import InputBox from './InputBox.jsx';
 
 function Chatbot() {
   const [messages, setMessages] = useState([
@@ -26,8 +24,8 @@ function Chatbot() {
   return (
     <div>
       <MessageList messages={messages} />
-
-      <Input type="prompt" placeholder="Ask anything!!" onSend={sendMessage} />
+      <InputBox onSend={sendMessage} />
+      <GeminiAPI /> {/* Integrate the GeminiAPI component */}
     </div>
   );
 }
