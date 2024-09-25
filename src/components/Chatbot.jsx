@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { getChatbotResponse } from '../api/healthApi';
 import MessageList from './MessageList';
 import InputBox from './InputBox';
+import { Input } from "@/components/ui/input"
+
 
 function Chatbot() {
   const [messages, setMessages] = useState([
@@ -24,7 +26,8 @@ function Chatbot() {
   return (
     <div>
       <MessageList messages={messages} />
-      <InputBox onSend={sendMessage} />
+
+      <Input type="prompt" placeholder="Ask anything!!" onSend={sendMessage} />
     </div>
   );
 }
