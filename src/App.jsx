@@ -1,6 +1,9 @@
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import Chatbot from "./components/Chatbot";
+import Home from "./components/pages/Home";
+import Chatbot from "./components/pages/Chatbot";
+import HealthAnalysis from "./components/pages/HealthAnalysis";
+import Medication from "./components/pages/Medication";
+
 
 function App() {
   return (
@@ -21,6 +24,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/chatbot" element={<Chatbot />} />
+          <Route path="/analysis" element={<HealthAnalysis />} />
+          <Route path="/medication" element={<Medication />} />
+
+
         </Routes>
       </main>
       
