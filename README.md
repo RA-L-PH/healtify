@@ -11,3 +11,5 @@ Currently, two official plugins are available:
 Installation:
 react-router-dom
 axios
+
+https://medium.com/@ldudaraliyanage/google-gemini-pro-ai-integration-with-react-vite-tutorial-in-just-5-min-90ba0c377723

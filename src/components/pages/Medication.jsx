@@ -1,4 +1,4 @@
-function MessageList({ messages }) {
+function Medication({ messages }) {
     return (
       <div>
         {messages.map((message, index) => (
@@ -10,5 +10,5 @@ function MessageList({ messages }) {
     );
   }
   
-  export default MessageList;
+  export default Medication;
   

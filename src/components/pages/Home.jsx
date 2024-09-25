@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import chatbotImage from '../assets/chatbot.jpeg';
-import analysisImage from '../assets/analysis.jpeg';
-import medicationImage from '../assets/medication.jpeg';
+import chatbotImage from '../../assets/chatbot.jpeg';
+import analysisImage from '../../assets/analysis.jpeg';
+import medicationImage from '../../assets/medication.jpeg';
 
 const Home = () => {
   return (

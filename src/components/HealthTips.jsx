@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getHealthTips } from '../api/GeminiAPI';
+import { getHealthTips } from '../api/healthApi';
 
 function HealthTips() {
   const [tips, setTips] = useState([]);
