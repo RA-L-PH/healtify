@@ -32,7 +32,11 @@ function HealthAnalysis() {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+      event.preventDefault();
+      if (symptoms.trim() === '') {
+        alert('Please enter symptoms before submitting.');
+        return;
+      }
 
     function normalizeSymptoms(input) {
       return input
