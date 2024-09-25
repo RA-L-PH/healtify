@@ -45,7 +45,7 @@ function Chatbot() {
             }
           ]
         }
-      })
+      });
       const botResponse = response['data']['candidates'][0]['content']["parts"][0]["text"];
       setConversation(prev => [...prev.slice(0, -1), { type: 'bot', text: botResponse }]);
       setUserInput('');
@@ -58,16 +58,18 @@ function Chatbot() {
   };
 
   return (
-    <div>
-      <div className="flex w-full flex-col h-full p-4 space-y-4">
-        <div className="bg-gray-100 p-4 rounded-lg h-full flex flex-col space-y-4">
-          {conversation.map((message, index) => (
-            message.type === 'user' ? (
-              <div key={index} className="bg-blue-100 p-3 rounded-lg self-end max-w-[80%]">
+    <div className="flex flex-col h-screen p-4">
+      <div className="flex-grow overflow-y-auto bg-gray-100 p-4 rounded-lg space-y-4">
+        {conversation.map((message, index) => (
+          message.type === 'user' ? (
+            <div key={index} className="flex justify-end">
+              <div className="bg-blue-100 p-3 rounded-lg max-w-[60%] self-end">
                 <p>{message.text}</p>
               </div>
-            ) : (
-              <div key={index} className="bg-white p-3 rounded-lg self-start max-w-[80%]">
+            </div>
+          ) : (
+            <div key={index} className="flex justify-start">
+              <div className="bg-white p-3 rounded-lg max-w-[60%] self-start">
                 {message.text === '...' ? (
                   <div className="animate-pulse flex space-x-4">
                     <div className="flex-1 space-y-4 py-1">
@@ -82,34 +84,35 @@ function Chatbot() {
                   <ReactMarkdown>{message.text}</ReactMarkdown>
                 )}
               </div>
-            )
-          ))}
-        </div>
+            </div>
+          )
+        ))}
+      </div>
 
-        <div className="w-full p-2 border-t flex items-center justify-between space-x-5">
-          <Input
-            type="text"
-            placeholder="Ask anything!!"
-            value={userInput}
-            onChange={handleInputChange}
-            onKeyDown={handleKeyDown}
-            className="h-10 w-full"
-          />
-          <Button
-            variant="outline"
-            className="flex justify-center items-center text-lg font-semibold cursor-pointer w-18 h-10 gap-2"
-            onClick={generateAnswer}
-            disabled={isLoading}
-          >
-            {isLoading ? (
-              <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-gray-900"></div>
-            ) : (
-              <>
-                Ask <IoMdSend className="w-5 h-5" />
-              </>
-            )}
-          </Button>
-        </div>
+      {/* Fixed Input Section */}
+      <div className="w-[95%] p-2 bg-white border-t flex items-center justify-between space-x-5 fixed bottom-0 left-0 right-0 m-3 shadow-lg">
+        <Input
+          type="text"
+          placeholder="How may I help You today?"
+          value={userInput}
+          onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
+          className="h-12 w-full"
+        />
+        <Button
+          variant="outline"
+          className="flex justify-center items-center text-lg font-semibold cursor-pointer w-18 h-12 gap-2"
+          onClick={generateAnswer}
+          disabled={isLoading}
+        >
+          {isLoading ? (
+            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-gray-900"></div>
+          ) : (
+            <>
+              Ask <IoMdSend className="w-5 h-5" />
+            </>
+          )}
+        </Button>
       </div>
     </div>
   );
