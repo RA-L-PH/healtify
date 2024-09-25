@@ -11,5 +11,9 @@ Currently, two official plugins are available:
 Installation:
 react-router-dom
 axios
+fuse.js
+react-markdown
+npx shadcn@latest add button
+npm i react-icons
 
 https://medium.com/@ldudaraliyanage/google-gemini-pro-ai-integration-with-react-vite-tutorial-in-just-5-min-90ba0c377723

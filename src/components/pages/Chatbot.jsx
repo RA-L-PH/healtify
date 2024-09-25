@@ -5,8 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import ReactMarkdown from 'react-markdown';
 
-// const apikey2 = process.env.GEMINI_API_KEY;
-const apikey = 'AIzaSyAaCpF0HaZWTQuNCeqiRJQExSdgbHi7V5o';
+const apikey = import.meta.env.VITE_GEMINI_API_KEY;
 
 function Chatbot() {
   const [userInput, setUserInput] = useState('');
@@ -24,7 +23,6 @@ function Chatbot() {
   };
 
   const generateAnswer = async () => {
-    console.log("generateAnswer")
     if (!userInput.trim()) {
       alert('Please enter a question');
       return;
@@ -48,7 +46,6 @@ function Chatbot() {
           ]
         }
       })
-      console.log(response['data']['candidates'][0]['content']["parts"][0]["text"]);
       const botResponse = response['data']['candidates'][0]['content']["parts"][0]["text"];
       setConversation(prev => [...prev.slice(0, -1), { type: 'bot', text: botResponse }]);
       setUserInput('');
