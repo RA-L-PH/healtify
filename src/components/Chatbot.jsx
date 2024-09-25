@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { getChatbotResponse } from '../api/healthApi';
 import MessageList from './MessageList';
-import InputBox from './InputBox';
 import { Input } from "@/components/ui/input"
 
 
@@ -25,9 +24,14 @@ function Chatbot() {
 
   return (
     <div>
-      <MessageList messages={messages} />
-
-      <Input type="prompt" placeholder="Ask anything!!" onSend={sendMessage} />
+          <div className="flex flex-col h-[80vh]">
+            <div className="flex-1 overflow-y-auto p-4">
+              <MessageList messages={messages} />
+            </div>
+            <div className="p-4 border-t">
+              <Input type="text" placeholder="Ask anything!!" />
+            </div>
+          </div>
     </div>
   );
 }
