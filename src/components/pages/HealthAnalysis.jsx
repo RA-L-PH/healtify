@@ -70,8 +70,8 @@ function HealthAnalysis() {
           value={symptoms}
           onChange={handleSymptomChange}
           placeholder="Enter your symptoms here, separated by commas..."
-          rows="4"
-          cols="50"
+          rows="1"
+          cols="30"
           className="p-2 border border-gray-300 rounded-md w-full"
         />
         <br />
