@@ -37,7 +37,7 @@ const diseaseData = {
     },
     advice: "Rest, stay hydrated, take over-the-counter cold medications, and avoid close contact with others to prevent spreading the virus.",
     followUpPlan: "Monitor symptoms for worsening. Seek medical advice if symptoms persist for more than 10 days.",
-    preventiveMeasures: ["Wash hands frequently", "Avoid contact with infected individuals", "Stay warm in cold weather"],
+    preventiveMeasures: ["Wash hands frequently", "Avoid contact with infected individuals", "Stay warm in cold weather"]
   },
 
   "severe headache, sensitivity to light, nausea, neck stiffness, blurred vision": {
@@ -77,7 +77,7 @@ const diseaseData = {
     },
     advice: "Stay in a dark, quiet room during a migraine attack, and apply cold compresses if needed.",
     followUpPlan: "Consult a doctor if headaches become more frequent or severe.",
-    preventiveMeasures: ["Avoid migraine triggers (e.g., stress, certain foods)", "Practice relaxation techniques"],
+    preventiveMeasures: ["Avoid migraine triggers (e.g., stress, certain foods)", "Practice relaxation techniques"]
   },
 
   "high fever, chills, nausea, vomiting, diarrhea, muscle pain, fatigue": {
@@ -120,727 +120,1525 @@ const diseaseData = {
     },
     advice: "Get plenty of rest, drink fluids, and avoid contact with others to prevent spreading the virus.",
     followUpPlan: "Seek medical attention if symptoms worsen or if there is difficulty breathing.",
-    preventiveMeasures: ["Annual flu vaccination", "Hand hygiene", "Avoid close contact with infected individuals"],
-  }
-};
+    preventiveMeasures: ["Annual flu vaccination", "Hand hygiene", "Avoid close contact with infected individuals"]
+  },
+
+  "fever, rash, joint pain, red eyes, muscle pain, headache": {
+    disease: "Zika Virus",
+    diagnosis: {
+      testsOrdered: ["Blood test", "Urine test"],
+      confirmedBy: "Lab test results"
+    },
+    symptoms: [
+      "Fever",
+      "Rash",
+      "Joint pain",
+      "Red eyes",
+      "Muscle pain",
+      "Headache"
+    ],
+    prescriptions: [
+      {
+        name: "Paracetamol",
+        dosage: "500mg every 6 hours",
+        purpose: "Reduce fever and relieve pain"
+      }
+    ],
+    treatmentPlan: {
+      lifestyleChanges: [
+        "Stay hydrated",
+        "Rest adequately"
+      ],
+      therapies: ["None required"]
+    },
+    advice: "Avoid mosquito bites, rest, and stay hydrated.",
+    followUpPlan: "Monitor symptoms and consult a doctor if there is worsening or additional symptoms.",
+    preventiveMeasures: ["Use mosquito repellents", "Wear long sleeves and pants", "Sleep under mosquito nets"]
+  },
+
+  "persistent cough, night sweats, fatigue, weight loss, fever, chest pain, coughing up blood": {
+    disease: "Tuberculosis",
+    diagnosis: {
+      testsOrdered: ["Sputum test", "Chest X-ray", "TB skin test"],
+      confirmedBy: "Sputum culture and imaging results"
+    },
+    symptoms: [
+      "Persistent cough",
+      "Night sweats",
+      "Fatigue",
+      "Weight loss",
+      "Fever",
+      "Chest pain",
+      "Coughing up blood"
+    ],
+    prescriptions: [
+      {
+        name: "Rifampin",
+        dosage: "600mg once daily",
+        purpose: "Antibiotic to kill TB bacteria"
+      },
+      {
+        name: "Isoniazid",
+        dosage: "300mg once daily",
+        purpose: "Antibiotic for TB treatment"
+      }
+    ],
+    treatmentPlan: {
+      lifestyleChanges: [
+        "Improve nutrition",
+        "Avoid alcohol"
+      ],
+      therapies: ["Long-term antibiotic therapy"]
+    },
+    advice: "Take the full course of antibiotics, rest, and maintain proper nutrition.",
+    followUpPlan: "Regular follow-up to monitor treatment response and side effects.",
+    preventiveMeasures: ["BCG vaccination", "Avoid contact with infected individuals", "Wear a mask in crowded places"]
+  },
+
+  "frequent urination, increased thirst, unexplained weight loss, blurred vision, fatigue": {
+    disease: "Type 1 Diabetes",
+    diagnosis: {
+      testsOrdered: ["Blood glucose test", "HbA1c test"],
+      confirmedBy: "Blood test results"
+    },
+    symptoms: [
+      "Frequent urination",
+      "Increased thirst",
+      "Unexplained weight loss",
+      "Blurred vision",
+      "Fatigue"
+    ],
+    prescriptions: [
+      {
+        name: "Insulin",
+        dosage: "Individualized based on blood glucose levels",
+        purpose: "Manage blood sugar levels"
+      }
+    ],
+    treatmentPlan: {
+      lifestyleChanges: [
+        "Monitor blood sugar regularly",
+        "Follow a diabetes-friendly diet"
+      ],
+      therapies: ["Insulin therapy"]
+    },
+    advice: "Monitor blood sugar, follow a healthy diet, and exercise regularly.",
+    followUpPlan: "Regular check-ups with an endocrinologist.",
+    preventiveMeasures: ["There is no known prevention for Type 1 Diabetes."]
+  },
+
+  "high blood sugar, frequent urination, increased thirst, slow-healing wounds, blurred vision": {
+    disease: "Type 2 Diabetes",
+    diagnosis: {
+      testsOrdered: ["Blood glucose test", "HbA1c test"],
+      confirmedBy: "Blood test results"
+    },
+    symptoms: [
+      "High blood sugar",
+      "Frequent urination",
+      "Increased thirst",
+      "Slow-healing wounds",
+      "Blurred vision"
+    ],
+    prescriptions: [
+      {
+        name: "Metformin",
+        dosage: "500mg twice daily",
+        purpose: "Control blood sugar levels"
+      }
+    ],
+    treatmentPlan: {
+      lifestyleChanges: [
+        "Adopt a healthy diet",
+        "Engage in regular physical activity"
+      ],
+      therapies: ["Oral medications and lifestyle management"]
+    },
+    advice: "Maintain a balanced diet, exercise regularly, and monitor blood sugar levels.",
+    followUpPlan: "Regular blood sugar monitoring and periodic HbA1c testing.",
+    preventiveMeasures: ["Maintain a healthy weight", "Exercise regularly", "Limit sugar intake"]
+  },
+
+  "diarrhea, stomach cramps, nausea, vomiting, fever, headache": {
+    disease: "Food Poisoning",
+    diagnosis: {
+      testsOrdered: ["Stool sample", "Blood test (in severe cases)"],
+      confirmedBy: "Reported symptoms and stool culture"
+    },
+    symptoms: [
+      "Diarrhea",
+      "Stomach cramps",
+      "Nausea",
+      "Vomiting",
+      "Fever",
+      "Headache"
+    ],
+    prescriptions: [
+      {
+        name: "Oral rehydration salts (ORS)",
+        dosage: "As needed to prevent dehydration",
+        purpose: "Replenish fluids and electrolytes"
+      }
+    ],
+    treatmentPlan: {
+      lifestyleChanges: [
+        "Drink plenty of fluids",
+        "Avoid solid food until symptoms improve"
+      ],
+      therapies: ["Fluid therapy in severe cases"]
+    },
+    advice: "Stay hydrated, rest, and eat bland foods once nausea subsides.",
+    followUpPlan: "Seek medical attention if symptoms persist or worsen.",
+    preventiveMeasures: ["Practice food hygiene", "Avoid undercooked food", "Wash hands frequently"]
+  },
+
+  "abdominal pain, bloating, diarrhea, weight loss, fatigue, malabsorption": {
+    disease: "Celiac Disease",
+    diagnosis: {
+      testsOrdered: ["Blood test for antibodies", "Endoscopy with biopsy"],
+      confirmedBy: "Biopsy results"
+    },
+    symptoms: [
+      "Abdominal pain",
+      "Bloating",
+      "Diarrhea",
+      "Weight loss",
+      "Fatigue",
+      "Malabsorption"
+    ],
+    prescriptions: [
+      {
+        name: "Gluten-free diet",
+        dosage: "Lifelong",
+        purpose: "Prevent symptoms and complications"
+      }
+    ],
+    treatmentPlan: {
+      lifestyleChanges: [
+        "Adopt a strict gluten-free diet",
+        "Monitor nutritional intake"
+      ],
+      therapies: ["None required if gluten is avoided"]
+    },
+    advice: "Strictly avoid gluten, and regularly consult a nutritionist.",
+    followUpPlan: "Annual check-ups for nutritional deficiencies and symptom monitoring.",
+    preventiveMeasures: ["Avoid gluten-containing foods and products"]
+  },
+
+  "shortness of breath, chest pain, coughing (sometimes with mucus), wheezing, fatigue": {
+    disease: "Chronic Obstructive Pulmonary Disease (COPD)",
+    diagnosis: {
+      testsOrdered: ["Pulmonary function test", "Chest X-ray", "CT scan"],
+      confirmedBy: "Lung function tests and imaging"
+    },
+    symptoms: [
+      "Shortness of breath",
+      "Chest pain",
+      "Coughing (sometimes with mucus)",
+      "Wheezing",
+      "Fatigue"
+    ],
+    prescriptions: [
+      {
+        name: "Albuterol (inhaler)",
+        dosage: "As needed",
+        purpose: "Open airways and improve breathing"
+      },
+      {
+        name: "Prednisone",
+        dosage: "5mg once daily",
+        purpose: "Reduce inflammation in the lungs"
+      }
+    ],
+    treatmentPlan: {
+      lifestyleChanges: [
+        "Quit smoking",
+        "Avoid exposure to lung irritants"
+      ],
+      therapies: ["Pulmonary rehabilitation"]
+    },
+    advice: "Quit smoking, take medications as prescribed, and participate in pulmonary rehabilitation.",
+    followUpPlan: "Regular lung function tests and monitoring.",
+    preventiveMeasures: ["Avoid smoking", "Use air purifiers to reduce lung irritants", "Get vaccinated against respiratory infections"]
+  },
+  "fever, fatigue, swollen lymph nodes, sore throat, rash, muscle aches": {
+    disease: "Mononucleosis (Mono)",
+    diagnosis: {
+      testsOrdered: ["Monospot test", "Complete blood count (CBC)", "EBV antibody test"],
+      confirmedBy: "Blood test results and symptoms"
+    },
+    symptoms: [
+      "Fever",
+      "Fatigue",
+      "Swollen lymph nodes",
+      "Sore throat",
+      "Rash",
+      "Muscle aches"
+    ],
+    prescriptions: [
+      {
+        name: "Acetaminophen",
+        dosage: "500mg every 6 hours",
+        purpose: "Reduce fever and relieve pain"
+      }
+    ],
+    treatmentPlan: {
+      lifestyleChanges: [
+        "Increase fluid intake",
+        "Get plenty of rest"
+      ],
+      therapies: ["None required"]
+    },
+    advice: "Rest, stay hydrated, and avoid contact sports to prevent spleen rupture.",
+    followUpPlan: "Monitor for any worsening of symptoms, particularly abdominal pain.",
+    preventiveMeasures: ["Avoid sharing utensils or drinks with infected individuals", "Practice good hygiene"]
+  },
+
+  "sudden weakness, facial droop, arm numbness, difficulty speaking, vision problems, dizziness": {
+    disease: "Stroke",
+    diagnosis: {
+      testsOrdered: ["CT scan", "MRI", "Carotid ultrasound", "Blood tests"],
+      confirmedBy: "Imaging results"
+    },
+    symptoms: [
+      "Sudden weakness (usually one side of the body)",
+      "Facial droop",
+      "Arm numbness",
+      "Difficulty speaking or understanding speech",
+      "Vision problems",
+      "Dizziness"
+    ],
+    prescriptions: [
+      {
+        name: "Aspirin",
+        dosage: "81mg daily",
+        purpose: "Prevent blood clots"
+      },
+      {
+        name: "Clopidogrel",
+        dosage: "75mg once daily",
+        purpose: "Prevent further stroke"
+      }
+    ],
+    treatmentPlan: {
+      lifestyleChanges: [
+        "Adopt a heart-healthy diet",
+        "Exercise regularly",
+        "Quit smoking"
+      ],
+      therapies: ["Physical therapy", "Speech therapy"]
+    },
+    advice: "Seek immediate medical attention at the first sign of a stroke (FAST: Face, Arms, Speech, Time).",
+    followUpPlan: "Regular follow-up with a neurologist and monitoring for risk factors like hypertension.",
+    preventiveMeasures: ["Control blood pressure", "Quit smoking", "Maintain a healthy diet and weight"]
+  },
+
+  "itchy red spots, fever, fatigue, headache, loss of appetite, blister-like rash": {
+    disease: "Chickenpox",
+    diagnosis: {
+      testsOrdered: ["Physical examination"],
+      confirmedBy: "Visual diagnosis of rash"
+    },
+    symptoms: [
+      "Itchy red spots",
+      "Fever",
+      "Fatigue",
+      "Headache",
+      "Loss of appetite",
+      "Blister-like rash"
+    ],
+    prescriptions: [
+      {
+        name: "Calamine lotion",
+        dosage: "Apply as needed",
+        purpose: "Soothe itching"
+      },
+      {
+        name: "Acetaminophen",
+        dosage: "500mg every 6 hours",
+        purpose: "Reduce fever"
+      }
+    ],
+    treatmentPlan: {
+      lifestyleChanges: [
+        "Keep skin cool",
+        "Avoid scratching to prevent infection"
+      ],
+      therapies: ["None required"]
+    },
+    advice: "Stay home, avoid scratching, and apply cool compresses for relief.",
+    followUpPlan: "Monitor for any signs of secondary bacterial infection.",
+    preventiveMeasures: ["Varicella vaccination", "Avoid contact with infected individuals"]
+  },
+
+  "dry cough, chest pain, fever, difficulty breathing, fatigue, shortness of breath": {
+    disease: "Pneumonia",
+    diagnosis: {
+      testsOrdered: ["Chest X-ray", "Sputum culture", "Blood test"],
+      confirmedBy: "Chest imaging and lab results"
+    },
+    symptoms: [
+      "Dry cough",
+      "Chest pain",
+      "Fever",
+      "Difficulty breathing",
+      "Fatigue",
+      "Shortness of breath"
+    ],
+    prescriptions: [
+      {
+        name: "Amoxicillin",
+        dosage: "500mg three times daily",
+        purpose: "Treat bacterial pneumonia"
+      },
+      {
+        name: "Cough suppressant",
+        dosage: "10ml twice daily",
+        purpose: "Relieve persistent cough"
+      }
+    ],
+    treatmentPlan: {
+      lifestyleChanges: [
+        "Stay hydrated",
+        "Rest adequately"
+      ],
+      therapies: ["Oxygen therapy (if severe)"]
+    },
+    advice: "Take antibiotics as prescribed and monitor for any worsening of symptoms.",
+    followUpPlan: "Follow up with a chest X-ray to ensure resolution of the infection.",
+    preventiveMeasures: ["Pneumococcal vaccination", "Quit smoking", "Practice good hygiene"]
+  },
+
+  "high fever, swollen painful joints, rash, muscle pain, nausea, vomiting, fatigue": {
+    disease: "Dengue Fever",
+    diagnosis: {
+      testsOrdered: ["Blood test for dengue antibodies"],
+      confirmedBy: "Lab test results"
+    },
+    symptoms: [
+      "High fever",
+      "Swollen painful joints",
+      "Rash",
+      "Muscle pain",
+      "Nausea",
+      "Vomiting",
+      "Fatigue"
+    ],
+    prescriptions: [
+      {
+        name: "Acetaminophen",
+        dosage: "500mg every 6 hours",
+        purpose: "Reduce fever and relieve pain"
+      }
+    ],
+    treatmentPlan: {
+      lifestyleChanges: [
+        "Stay hydrated",
+        "Rest adequately"
+      ],
+      therapies: ["None required"]
+    },
+    advice: "Avoid mosquito bites, rest, and stay hydrated.",
+    followUpPlan: "Monitor for warning signs such as bleeding or severe abdominal pain, and seek medical attention if present.",
+    preventiveMeasures: ["Use mosquito repellent", "Eliminate standing water", "Wear long sleeves"]
+  },
+
+  "fever, chills, headache, muscle pain, vomiting, fatigue, diarrhea": {
+    disease: "Malaria",
+    diagnosis: {
+      testsOrdered: ["Blood smear test", "Rapid diagnostic test (RDT)"],
+      confirmedBy: "Lab test results"
+    },
+    symptoms: [
+      "Fever",
+      "Chills",
+      "Headache",
+      "Muscle pain",
+      "Vomiting",
+      "Fatigue",
+      "Diarrhea"
+    ],
+    prescriptions: [
+      {
+        name: "Artemether-lumefantrine",
+        dosage: "80mg/480mg twice daily for 3 days",
+        purpose: "Treat malaria infection"
+      }
+    ],
+    treatmentPlan: {
+      lifestyleChanges: [
+        "Stay hydrated",
+        "Rest adequately"
+      ],
+      therapies: ["None required"]
+    },
+    advice: "Take the full course of antimalarial medication and avoid mosquito bites.",
+    followUpPlan: "Follow up with blood tests to ensure complete clearance of the parasite.",
+    preventiveMeasures: ["Use mosquito nets", "Take antimalarial prophylaxis", "Avoid outdoor activities at dusk and dawn"]
+  },
+
+  "severe abdominal pain, bloating, diarrhea, constipation, gas, cramping": {
+    disease: "Irritable Bowel Syndrome (IBS)",
+    diagnosis: {
+      testsOrdered: ["Colonoscopy (if needed)", "Stool test"],
+      confirmedBy: "Exclusion of other conditions"
+    },
+    symptoms: [
+      "Severe abdominal pain",
+      "Bloating",
+      "Diarrhea",
+      "Constipation",
+      "Gas",
+      "Cramping"
+    ],
+    prescriptions: [
+      {
+        name: "Loperamide",
+        dosage: "2mg as needed",
+        purpose: "Reduce diarrhea"
+      },
+      {
+        name: "Peppermint oil capsules",
+        dosage: "1-2 capsules daily",
+        purpose: "Relieve abdominal discomfort"
+      }
+    ],
+    treatmentPlan: {
+      lifestyleChanges: [
+        "Increase dietary fiber intake",
+        "Identify and avoid trigger foods"
+      ],
+      therapies: ["Cognitive behavioral therapy (CBT) for stress management"]
+    },
+    advice: "Maintain a high-fiber diet, manage stress, and track food triggers.",
+    followUpPlan: "Regular follow-ups to monitor symptoms and adjust treatment as needed.",
+    preventiveMeasures: ["Adopt a balanced diet", "Manage stress", "Stay hydrated"]
+  },
+  "chronic cough, shortness of breath, wheezing, chest tightness": {
+      "disease": "Asthma",
+      "diagnosis": {
+        "testsOrdered": ["Spirometry", "Peak flow measurement", "Chest X-ray"],
+        "confirmedBy": "Pulmonary function test results"
+      },
+      "symptoms": [
+        "Chronic cough",
+        "Shortness of breath",
+        "Wheezing",
+        "Chest tightness"
+      ],
+      "prescriptions": [
+        {
+          "name": "Albuterol inhaler",
+          "dosage": "As needed",
+          "purpose": "Relieve acute asthma symptoms"
+        },
+        {
+          "name": "Inhaled corticosteroids",
+          "dosage": "As prescribed",
+          "purpose": "Reduce inflammation and prevent attacks"
+        }
+      ],
+      "treatmentPlan": {
+        "lifestyleChanges": [
+          "Avoid asthma triggers",
+          "Maintain a healthy weight"
+        ],
+        "therapies": ["Allergy management"]
+      },
+      "advice": "Carry your inhaler at all times and follow your asthma action plan.",
+      "followUpPlan": "Regular follow-ups to adjust medications as needed.",
+      "preventiveMeasures": ["Avoid allergens", "Get vaccinated against flu and pneumonia"]
+    },
+  
+    "itchy eyes, sneezing, runny nose, nasal congestion": {
+      "disease": "Allergic Rhinitis",
+      "diagnosis": {
+        "testsOrdered": ["Allergy skin tests", "Blood tests"],
+        "confirmedBy": "Symptom history and allergy testing"
+      },
+      "symptoms": [
+        "Itchy eyes",
+        "Sneezing",
+        "Runny nose",
+        "Nasal congestion"
+      ],
+      "prescriptions": [
+        {
+          "name": "Antihistamines (e.g., Cetirizine)",
+          "dosage": "10mg once daily",
+          "purpose": "Relieve allergy symptoms"
+        },
+        {
+          "name": "Nasal corticosteroids",
+          "dosage": "As prescribed",
+          "purpose": "Reduce nasal inflammation"
+        }
+      ],
+      "treatmentPlan": {
+        "lifestyleChanges": [
+          "Avoid known allergens",
+          "Keep windows closed during pollen season"
+        ],
+        "therapies": ["Allergy immunotherapy if needed"]
+      },
+      "advice": "Use saline nasal sprays for symptom relief and keep indoor air clean.",
+      "followUpPlan": "Regular follow-ups to adjust allergy management.",
+      "preventiveMeasures": ["Avoid triggers", "Consider air purifiers"]
+    },
+  
+    "extreme thirst, frequent urination, fatigue, blurred vision": {
+      "disease": "Diabetes Mellitus",
+      "diagnosis": {
+        "testsOrdered": ["Fasting blood glucose test", "HbA1c test"],
+        "confirmedBy": "Lab test results"
+      },
+      "symptoms": [
+        "Extreme thirst",
+        "Frequent urination",
+        "Fatigue",
+        "Blurred vision"
+      ],
+      "prescriptions": [
+        {
+          "name": "Metformin",
+          "dosage": "500mg twice daily",
+          "purpose": "Control blood sugar levels"
+        }
+      ],
+      "treatmentPlan": {
+        "lifestyleChanges": [
+          "Follow a balanced diet",
+          "Increase physical activity"
+        ],
+        "therapies": ["Diabetes education and management"]
+      },
+      "advice": "Monitor blood sugar levels regularly and follow dietary guidelines.",
+      "followUpPlan": "Regular follow-ups to monitor HbA1c levels.",
+      "preventiveMeasures": ["Maintain a healthy weight", "Regular exercise"]
+    },
+  
+    "chest pain, heart palpitations, shortness of breath, sweating": {
+      "disease": "Myocardial Infarction (Heart Attack)",
+      "diagnosis": {
+        "testsOrdered": ["ECG", "Cardiac enzyme tests", "Coronary angiography"],
+        "confirmedBy": "ECG and enzyme test results"
+      },
+      "symptoms": [
+        "Chest pain",
+        "Heart palpitations",
+        "Shortness of breath",
+        "Sweating"
+      ],
+      "prescriptions": [
+        {
+          "name": "Aspirin",
+          "dosage": "325mg chewable at onset",
+          "purpose": "Reduce blood clotting"
+        },
+        {
+          "name": "Beta-blockers",
+          "dosage": "As prescribed",
+          "purpose": "Reduce heart workload"
+        }
+      ],
+      "treatmentPlan": {
+        "lifestyleChanges": [
+          "Follow a heart-healthy diet",
+          "Quit smoking"
+        ],
+        "therapies": ["Cardiac rehabilitation"]
+      },
+      "advice": "Seek emergency medical attention at the first sign of chest pain.",
+      "followUpPlan": "Regular cardiology follow-ups to monitor heart health.",
+      "preventiveMeasures": ["Control cholesterol", "Maintain a healthy weight"]
+    },
+  
+    "joint pain, stiffness, swelling, fatigue": {
+      "disease": "Rheumatoid Arthritis",
+      "diagnosis": {
+        "testsOrdered": ["Rheumatoid factor test", "Anti-CCP antibody test", "X-rays"],
+        "confirmedBy": "Lab test results and clinical evaluation"
+      },
+      "symptoms": [
+        "Joint pain",
+        "Stiffness",
+        "Swelling",
+        "Fatigue"
+      ],
+      "prescriptions": [
+        {
+          "name": "Methotrexate",
+          "dosage": "7.5mg weekly",
+          "purpose": "Reduce inflammation and slow disease progression"
+        },
+        {
+          "name": "NSAIDs (e.g., Ibuprofen)",
+          "dosage": "As needed",
+          "purpose": "Relieve pain and inflammation"
+        }
+      ],
+      "treatmentPlan": {
+        "lifestyleChanges": [
+          "Engage in low-impact exercises",
+          "Maintain a healthy weight"
+        ],
+        "therapies": ["Physical therapy"]
+      },
+      "advice": "Manage stress and keep joints active without overexertion.",
+      "followUpPlan": "Regular rheumatology follow-ups to monitor disease activity.",
+      "preventiveMeasures": ["Avoid joint injuries", "Regular exercise"]
+    },
+  
+    "burning chest pain, difficulty swallowing, regurgitation, sour taste": {
+      "disease": "Gastroesophageal Reflux Disease (GERD)",
+      "diagnosis": {
+        "testsOrdered": ["Upper endoscopy", "Esophageal pH monitoring"],
+        "confirmedBy": "Symptom history and test results"
+      },
+      "symptoms": [
+        "Burning chest pain",
+        "Difficulty swallowing",
+        "Regurgitation",
+        "Sour taste"
+      ],
+      "prescriptions": [
+        {
+          "name": "Proton pump inhibitors (e.g., Omeprazole)",
+          "dosage": "20mg once daily",
+          "purpose": "Reduce stomach acid production"
+        },
+        {
+          "name": "Antacids",
+          "dosage": "As needed",
+          "purpose": "Neutralize stomach acid"
+        }
+      ],
+      "treatmentPlan": {
+        "lifestyleChanges": [
+          "Avoid trigger foods",
+          "Eat smaller meals"
+        ],
+        "therapies": ["None required"]
+      },
+      "advice": "Elevate the head of the bed and avoid lying down after meals.",
+      "followUpPlan": "Regular follow-ups to assess symptoms and medication effectiveness.",
+      "preventiveMeasures": ["Maintain a healthy weight", "Limit alcohol intake"]
+    },
+  
+    "nausea, vomiting, diarrhea, abdominal cramps": {
+      "disease": "Gastroenteritis",
+      "diagnosis": {
+        "testsOrdered": ["Stool culture", "Blood tests if severe"],
+        "confirmedBy": "Symptom history and clinical examination"
+      },
+      "symptoms": [
+        "Nausea",
+        "Vomiting",
+        "Diarrhea",
+        "Abdominal cramps"
+      ],
+      "prescriptions": [
+        {
+          "name": "Loperamide",
+          "dosage": "As needed",
+          "purpose": "Reduce diarrhea"
+        },
+        {
+          "name": "Oral rehydration solution",
+          "dosage": "As needed",
+          "purpose": "Prevent dehydration"
+        }
+      ],
+      "treatmentPlan": {
+        "lifestyleChanges": [
+          "Stay hydrated",
+          "Avoid solid foods until vomiting subsides"
+        ],
+        "therapies": ["None required"]
+      },
+      "advice": "Monitor for signs of dehydration and seek medical attention if needed.",
+      "followUpPlan": "Follow up if symptoms persist or worsen.",
+      "preventiveMeasures": ["Practice good hand hygiene", "Avoid contaminated food and water"]
+    },
+  
+    "pale skin, fatigue, shortness of breath, dizziness": {
+      "disease": "Anemia",
+      "diagnosis": {
+        "testsOrdered": ["Complete blood count (CBC)", "Iron studies"],
+        "confirmedBy": "Lab test results"
+      },
+      "symptoms": [
+        "Pale skin",
+        "Fatigue",
+        "Shortness of breath",
+        "Dizziness"
+      ],
+      "prescriptions": [
+        {
+          "name": "Iron supplements",
+          "dosage": "As prescribed",
+          "purpose": "Treat iron deficiency anemia"
+        }
+      ],
+      "treatmentPlan": {
+        "lifestyleChanges": [
+          "Increase iron-rich foods in diet",
+          "Consider vitamin C for better iron absorption"
+        ],
+        "therapies": ["None required"]
+      },
+      "advice": "Monitor your symptoms and ensure a balanced diet.",
+      "followUpPlan": "Regular follow-ups to check hemoglobin levels.",
+      "preventiveMeasures": ["Consume iron-rich foods", "Regular health check-ups"]
+    },
+  
+    "fatigue, difficulty concentrating, mood changes, cravings": {
+      "disease": "Hypothyroidism",
+      "diagnosis": {
+        "testsOrdered": ["Thyroid function tests"],
+        "confirmedBy": "Lab test results"
+      },
+      "symptoms": [
+        "Fatigue",
+        "Difficulty concentrating",
+        "Mood changes",
+        "Cravings"
+      ],
+      "prescriptions": [
+        {
+          "name": "Levothyroxine",
+          "dosage": "As prescribed",
+          "purpose": "Replace thyroid hormone"
+        }
+      ],
+      "treatmentPlan": {
+        "lifestyleChanges": [
+          "Maintain a balanced diet",
+          "Exercise regularly"
+        ],
+        "therapies": ["None required"]
+      },
+      "advice": "Take your medication regularly and have periodic thyroid function tests.",
+      "followUpPlan": "Regular follow-ups to monitor thyroid levels.",
+      "preventiveMeasures": ["Maintain a healthy lifestyle", "Regular health check-ups"]
+    },
+  
+    "excessive thirst, frequent urination, fatigue, blurred vision": {
+      "disease": "Diabetes Insipidus",
+      "diagnosis": {
+        "testsOrdered": ["Water deprivation test", "Urine test"],
+        "confirmedBy": "Lab test results"
+      },
+      "symptoms": [
+        "Excessive thirst",
+        "Frequent urination",
+        "Fatigue",
+        "Blurred vision"
+      ],
+      "prescriptions": [
+        {
+          "name": "Desmopressin",
+          "dosage": "As prescribed",
+          "purpose": "Reduce urine output"
+        }
+      ],
+      "treatmentPlan": {
+        "lifestyleChanges": [
+          "Drink plenty of fluids",
+          "Maintain a balanced diet"
+        ],
+        "therapies": ["None required"]
+      },
+      "advice": "Monitor your fluid intake and report any significant changes.",
+      "followUpPlan": "Regular follow-ups to monitor symptoms and medication effectiveness.",
+      "preventiveMeasures": ["Stay hydrated", "Regular health check-ups"]
+    },
+  
 
 
-// const diseaseData = {
-//   "fever, cough, fatigue": {
-//     disease: "Common Cold",
-//     advice: "Rest, stay hydrated, take over-the-counter cold medications, and avoid close contact with others to prevent spreading the virus."
-//   },
-//   "fever, headache, joint pain, rash": {
-//     disease: "Dengue Fever",
-//     advice: "Stay hydrated, take acetaminophen for pain and fever, avoid mosquito bites, and seek medical attention if symptoms worsen."
-//   },
-//   "persistent cough, shortness of breath, chest pain": {
-//     disease: "COVID-19",
-//     advice: "Self-isolate, monitor symptoms, seek testing, and consult a healthcare provider for further guidance."
-//   },
-//   "abdominal pain, nausea, jaundice": {
-//     disease: "Hepatitis A",
-//     advice: "Rest, avoid alcohol, eat a healthy diet, and practice good hygiene. Vaccination can prevent future infections."
-//   },
-//   "itchy eyes, sneezing, runny nose": {
-//     disease: "Allergic Rhinitis",
-//     advice: "Avoid allergens, use antihistamines, and keep windows closed during high pollen seasons."
-//   },
-//   "high fever, severe headache, muscle pain": {
-//     disease: "Malaria",
-//     advice: "Seek immediate medical attention, take prescribed antimalarial medications, and use mosquito protection measures."
-//   },
-//   "sore throat, difficulty swallowing, swollen lymph nodes": {
-//     disease: "Strep Throat",
-//     advice: "Take prescribed antibiotics, rest, gargle with salt water, and drink warm liquids to soothe the throat."
-//   },
-//   "joint pain, stiffness, swelling": {
-//     disease: "Rheumatoid Arthritis",
-//     advice: "Follow prescribed medications, engage in low-impact exercises, apply hot/cold therapy, and maintain a healthy diet."
-//   },
-//   "chest pain, shortness of breath, irregular heartbeat": {
-//     disease: "Heart Disease",
-//     advice: "Seek immediate medical attention, take prescribed medications, maintain a heart-healthy diet, and exercise regularly as advised by your doctor."
-//   },
-//   "frequent urination, excessive thirst, fatigue": {
-//     disease: "Diabetes",
-//     advice: "Monitor blood sugar levels, follow a balanced diet, exercise regularly, and take prescribed medications or insulin as directed."
-//   },
-//   "memory loss, confusion, difficulty with daily tasks": {
-//     disease: "Alzheimer's Disease",
-//     advice: "Seek medical evaluation, engage in cognitive stimulation activities, maintain a routine, and ensure a safe living environment."
-//   },
-//   "tremors, stiffness, slow movement": {
-//     disease: "Parkinson's Disease",
-//     advice: "Follow prescribed medications, engage in physical therapy, exercise regularly, and consider occupational therapy for daily activities."
-//   },
-//   "wheezing, shortness of breath, chest tightness": {
-//     disease: "Asthma",
-//     advice: "Use prescribed inhalers, avoid triggers, create an asthma action plan, and seek medical attention for severe symptoms."
-//   },
-//   "abdominal pain, diarrhea, blood in stool": {
-//     disease: "Inflammatory Bowel Disease",
-//     advice: "Follow prescribed medications, maintain a balanced diet, manage stress, and avoid trigger foods."
-//   },
-//   "skin rashes, joint pain, fatigue": {
-//     disease: "Lupus",
-//     advice: "Take prescribed medications, protect skin from sun exposure, manage stress, and maintain a healthy lifestyle."
-//   },
-//   "excessive sweating, weight loss, rapid heartbeat": {
-//     disease: "Hyperthyroidism",
-//     advice: "Take prescribed medications, follow a balanced diet, manage stress, and attend regular check-ups."
-//   },
-//   "weight gain, fatigue, cold sensitivity, severe fatigue, hair loss, cold intolerance": {
-//     disease: "Hypothyroidism",
-//     advice: "Take prescribed thyroid hormone replacement, maintain a healthy diet, exercise regularly, and monitor symptoms.Follow prescribed thyroid hormone replacement therapy."
-//   },
-//   "bone pain, frequent fractures, loss of height": {
-//     disease: "Osteoporosis",
-//     advice: "Take calcium and vitamin D supplements, engage in weight-bearing exercises, avoid smoking and excessive alcohol consumption."
-//   },
-//   "red, scaly patches on skin": {
-//     disease: "Psoriasis",
-//     advice: "Use prescribed topical treatments, moisturize regularly, avoid triggers, and consider phototherapy as recommended by your doctor."
-//   },
-//   "anxiety, panic attacks, irrational fears": {
-//     disease: "Anxiety Disorder",
-//     advice: "Seek therapy or counseling, practice relaxation techniques, exercise regularly, and consider prescribed medications if recommended."
-//   },
-//   "persistent sadness, loss of interest, sleep changes": {
-//     disease: "Depression",
-//     advice: "Seek professional help, engage in therapy, exercise regularly, maintain a support network, and consider prescribed medications if recommended."
-//   },
-//   "red, itchy eyes, light sensitivity": {
-//     disease: "Conjunctivitis",
-//     advice: "Use prescribed eye drops, avoid touching or rubbing eyes, practice good hygiene, and use warm compresses for comfort."
-//   },
-//   "painful urination, frequent urination, lower back pain": {
-//     disease: "Urinary Tract Infection",
-//     advice: "Take prescribed antibiotics, drink plenty of water, urinate frequently, and avoid irritants like caffeine and alcohol."
-//   },
-//   "swollen, tender joints, morning stiffness": {
-//     disease: "Osteoarthritis",
-//     advice: "Exercise regularly, maintain a healthy weight, use hot/cold therapy, and take prescribed pain relievers as needed."
-//   },
-//   "chest pain, shortness of breath, leg swelling": {
-//     disease: "Congestive Heart Failure",
-//     advice: "Follow prescribed medications, limit salt intake, monitor weight daily, and engage in light exercise as recommended by your doctor."
-//   },
-//   "abdominal pain, bloating, changes in bowel habits": {
-//     disease: "Irritable Bowel Syndrome",
-//     advice: "Identify and avoid trigger foods, manage stress, exercise regularly, and consider dietary changes like increasing fiber intake."
-//   },
-//   "vision changes, eye pain, halos around lights": {
-//     disease: "Glaucoma",
-//     advice: "Use prescribed eye drops, attend regular eye check-ups, protect eyes from injury, and maintain a healthy lifestyle."
-//   },
-//   "hearing loss, ringing in ears": {
-//     disease: "Tinnitus",
-//     advice: "Avoid loud noises, use white noise machines, manage stress, and consider hearing aids if recommended by your doctor."
-//   },
-//   "difficulty breathing, bluish skin color": {
-//     disease: "Chronic Obstructive Pulmonary Disease (COPD)",
-//     advice: "Quit smoking, use prescribed inhalers, attend pulmonary rehabilitation, and get vaccinated against flu and pneumonia."
-//   },
-//   "skin moles changing size or color": {
-//     disease: "Skin Cancer",
-//     advice: "Seek immediate medical evaluation, protect skin from sun exposure, perform regular skin self-exams, and use sunscreen daily."
-//   },
-//   "unexplained weight loss, fatigue, night sweats": {
-//     disease: "Lymphoma",
-//     advice: "Seek immediate medical evaluation, follow prescribed treatment plan, maintain a healthy diet, and get plenty of rest."
-//   },
-//   "difficulty swallowing, heartburn, regurgitation": {
-//     disease: "Gastroesophageal Reflux Disease (GERD)",
-//     advice: "Avoid trigger foods, eat smaller meals, don't lie down after eating, and take prescribed medications as directed."
-//   },
-//   "muscle weakness, numbness, tingling": {
-//     disease: "Multiple Sclerosis",
-//     advice: "Follow prescribed medications, engage in physical therapy, manage stress, and maintain a healthy lifestyle."
-//   },
-//   "swollen legs, shortness of breath, fatigue": {
-//     disease: "Chronic Venous Insufficiency",
-//     advice: "Elevate legs when resting, wear compression stockings, exercise regularly, and maintain a healthy weight."
-//   },
-//   "joint pain, skin rashes, fever": {
-//     disease: "Lyme Disease",
-//     advice: "Take prescribed antibiotics, rest, use pain relievers for symptoms, and prevent future tick bites."
-//   },
-//   "excessive daytime sleepiness, loud snoring": {
-//     disease: "Sleep Apnea",
-//     advice: "Use prescribed CPAP machine, maintain a healthy weight, avoid alcohol and sedatives before bedtime, and sleep on your side."
-//   },
-//   "painful, swollen joints, fever, fatigue": {
-//     disease: "Gout",
-//     advice: "Take prescribed medications, limit high-purine foods, stay hydrated, and maintain a healthy weight."
-//   },
-//   "vision loss, eye pain, floaters": {
-//     disease: "Retinal Detachment",
-//     advice: "Seek immediate medical attention, avoid strenuous activities, and follow post-treatment instructions carefully."
-//   },
-//   "difficulty concentrating, hyperactivity, impulsiveness": {
-//     disease: "Attention Deficit Hyperactivity Disorder (ADHD)",
-//     advice: "Follow prescribed medications, establish routines, break tasks into smaller steps, and consider behavioral therapy."
-//   },
-//   "memory problems, confusion, personality changes": {
-//     disease: "Dementia",
-//     advice: "Seek medical evaluation, maintain a structured routine, engage in cognitive activities, and ensure a safe living environment."
-//   },
-//   "painful intercourse, heavy menstrual bleeding": {
-//     disease: "Endometriosis",
-//     advice: "Take prescribed medications, consider hormonal treatments, use pain management techniques, and maintain a healthy lifestyle."
-//   },
-//   "blood in urine, back pain, frequent urination": {
-//     disease: "Kidney Stones",
-//     advice: "Drink plenty of water, take pain relievers as needed, strain urine to catch passed stones, and follow dietary recommendations."
-//   },
-//   "yellowing of skin and eyes, abdominal pain": {
-//     disease: "Gallstones",
-//     advice: "Follow a low-fat diet, maintain a healthy weight, consider prescribed medications or surgery as recommended by your doctor."
-//   },
-//   "difficulty breathing, chest tightness, coughing": {
-//     disease: "Pneumonia",
-//     advice: "Take prescribed antibiotics, get plenty of rest, stay hydrated, and use a humidifier to ease breathing."
-//   },
-//   "red, swollen gums, bleeding when brushing": {
-//     disease: "Gingivitis",
-//     advice: "Improve oral hygiene, brush and floss regularly, use an antiseptic mouthwash, and schedule regular dental check-ups."
-//   },
-//   "sudden severe headache, confusion, vision problems": {
-//     disease: "Stroke",
-//     advice: "Seek immediate emergency medical attention, follow rehabilitation plan, make lifestyle changes to prevent future strokes."
-//   },
-//   "swelling and pain in leg, warmth and redness": {
-//     disease: "Deep Vein Thrombosis",
-//     advice: "Seek immediate medical attention, take prescribed blood thinners, elevate affected leg, and wear compression stockings."
-//   },
-//   "difficulty sleeping, daytime fatigue, irritability": {
-//     disease: "Insomnia",
-//     advice: "Establish a regular sleep schedule, create a relaxing bedtime routine, avoid caffeine and electronics before bed, and consider cognitive behavioral therapy."
-//   },
-//   "fever, night sweats, weight loss": {
-//     disease: "Tuberculosis",
-//     advice: "Seek medical attention, take prescribed antibiotics, and follow the treatment plan strictly to prevent drug resistance."
-//   },
-//   "painful urination, pelvic pain, discharge": {
-//     disease: "Chlamydia",
-//     advice: "Take prescribed antibiotics, avoid sexual activity during treatment, and notify sexual partners for testing."
-//   },
-//   "frequent headaches, nausea, sensitivity to light": {
-//     disease: "Migraine",
-//     advice: "Avoid known triggers, take prescribed medications, rest in a dark, quiet room, and stay hydrated."
-//   },
-//   "abdominal pain, vomiting, bloating": {
-//     disease: "Gastroenteritis",
-//     advice: "Stay hydrated, avoid solid foods until symptoms improve, and rest. Seek medical advice if symptoms persist."
-//   },
-//   "fever, cough, rapid breathing": {
-//     disease: "Bronchitis",
-//     advice: "Rest, drink plenty of fluids, avoid smoking, and use a humidifier to ease symptoms. Seek medical advice if symptoms worsen."
-//   },
-//   "fatigue, dry mouth, joint pain": {
-//     disease: "Sjogren's Syndrome",
-//     advice: "Stay hydrated, use artificial tears for dry eyes, and follow prescribed treatments. Regular dental check-ups are recommended."
-//   },
-//   "painful sores, swollen lymph nodes, fever": {
-//     disease: "Herpes Simplex",
-//     advice: "Take prescribed antiviral medications, avoid touching sores, and maintain good hygiene to prevent spreading."
-//   },
-//   "blurred vision, eye pain, halos around lights": {
-//     disease: "Cataracts",
-//     advice: "Schedule regular eye check-ups, protect your eyes from UV light, and consider surgery if vision is severely affected."
-//   },
-//   "shortness of breath, fatigue, chronic cough": {
-//     disease: "Pulmonary Fibrosis",
-//     advice: "Follow prescribed treatments, use supplemental oxygen if recommended, and avoid lung irritants like smoking."
-//   },
-//   "abdominal pain, jaundice, pale stools": {
-//     disease: "Pancreatitis",
-//     advice: "Avoid alcohol, eat a low-fat diet, and take prescribed medications. Hospitalization may be required for severe cases."
-//   },
-//   "persistent diarrhea, blood in stool, weight loss": {
-//     disease: "Crohn's Disease",
-//     advice: "Follow prescribed medications, maintain a balanced diet, avoid trigger foods, and manage stress."
-//   },
-//   "weakness, dizziness, chest pain": {
-//     disease: "Anemia",
-//     advice: "Eat iron-rich foods, take prescribed iron supplements, and follow up with your healthcare provider for regular blood tests."
-//   },
-//   "fever, sore throat, swollen glands": {
-//     disease: "Mononucleosis",
-//     advice: "Rest, stay hydrated, avoid contact sports, and take over-the-counter pain relievers to reduce symptoms."
-//   },
-//   "persistent cough, weight loss, fatigue": {
-//     disease: "Lung Cancer",
-//     advice: "Seek immediate medical attention, follow prescribed treatments, avoid smoking, and consider lifestyle changes to improve overall health."
-//   },
-//   "severe abdominal pain, nausea, vomiting": {
-//     disease: "Appendicitis",
-//     advice: "Seek immediate medical attention. Surgery is often required to remove the appendix and prevent complications."
-//   },
-//   "fever, neck stiffness, sensitivity to light": {
-//     disease: "Meningitis",
-//     advice: "Seek immediate medical attention, take prescribed antibiotics or antivirals, and avoid close contact with others."
-//   },
-//   "severe headache, nausea, double vision": {
-//     disease: "Brain Tumor",
-//     advice: "Seek immediate medical evaluation, follow prescribed treatments, and consider lifestyle changes to manage symptoms."
-//   },
-//   "skin rash, fatigue, headache": {
-//     disease: "Chickenpox",
-//     advice: "Stay home, avoid scratching the rash, take prescribed antiviral medications, and use over-the-counter treatments for itch relief."
-//   },
-//   "frequent thirst, frequent urination, blurred vision": {
-//     disease: "Type 1 Diabetes",
-//     advice: "Monitor blood sugar levels regularly, take insulin as prescribed, follow a balanced diet, and exercise regularly."
-//   },
-//   "fever, rash, joint pain": {
-//     disease: "Chikungunya",
-//     advice: "Stay hydrated, take pain relievers as needed, avoid mosquito bites, and seek medical attention if symptoms worsen."
-//   },
-//   "painful urination, discharge, pelvic pain": {
-//     disease: "Gonorrhea",
-//     advice: "Take prescribed antibiotics, avoid sexual activity during treatment, and notify sexual partners for testing."
-//   },
-//   "persistent cough, night sweats, weight loss": {
-//     disease: "HIV/AIDS",
-//     advice: "Seek medical evaluation, follow prescribed antiretroviral therapy, and maintain a healthy lifestyle to manage the condition."
-//   },
-//   "fever, abdominal pain, blood in stool": {
-//     disease: "Typhoid Fever",
-//     advice: "Seek medical attention, take prescribed antibiotics, stay hydrated, and rest. Vaccination can prevent future infections."
-//   },
-//   "rash, fever, swollen lymph nodes": {
-//     disease: "Rubella",
-//     advice: "Stay home, rest, avoid contact with pregnant women, and take over-the-counter medications for symptom relief."
-//   },
-//   "fever, muscle pain, confusion": {
-//     disease: "Leptospirosis",
-//     advice: "Seek medical attention, take prescribed antibiotics, avoid contaminated water sources, and rest."
-//   },
-//   "fever, headache, body aches": {
-//     disease: "Zika Virus",
-//     advice: "Stay hydrated, rest, avoid mosquito bites, and consult a healthcare provider if pregnant or planning to become pregnant."
-//   },
-//   "rash, swollen glands, joint pain": {
-//     disease: "Measles",
-//     advice: "Stay home, avoid contact with others, rest, and take over-the-counter medications for symptom relief."
-//   },
-//   "high fever, muscle pain, kidney failure": {
-//     disease: "Hantavirus",
-//     advice: "Seek immediate medical attention, avoid rodent-infested areas, and follow prescribed treatments. Early detection is crucial."
-//   },
-//   "muscle weakness, double vision, difficulty swallowing": {
-//     disease: "Myasthenia Gravis",
-//     advice: "Follow prescribed treatments, engage in regular check-ups, manage stress, and avoid overexertion."
-//   },
-//   "painful sores, fever, swollen lymph nodes": {
-//     disease: "Syphilis",
-//     advice: "Take prescribed antibiotics, avoid sexual contact during treatment, and notify sexual partners for testing."
-//   },
-//   "fever, chills, abdominal pain, headache": {
-//     disease: "Yellow Fever",
-//     advice: "Seek medical attention, rest, stay hydrated, and avoid mosquito bites. Vaccination can prevent future infections."
-//   },
-//   "fatigue, weight loss, diarrhea": {
-//     disease: "Celiac Disease",
-//     advice: "Follow a strict gluten-free diet, take prescribed supplements, and seek regular medical follow-ups."
-//   },
-//   "dizziness, sweating, rapid heartbeat": {
-//     disease: "Panic Disorder",
-//     advice: "Seek therapy or counseling, practice relaxation techniques, avoid triggers, and consider prescribed medications if necessary."
-//   },
 
-//   "frequent infections, easy bruising, fatigue": {
-//     disease: "Leukemia",
-//     advice: "Seek immediate medical attention, follow prescribed treatments, and maintain a healthy lifestyle to support recovery."
-//   },
-//   "persistent itching, yellowing of the skin, dark urine": {
-//     disease: "Liver Disease",
-//     advice: "Avoid alcohol, follow a liver-friendly diet, take prescribed medications, and seek regular medical evaluations."
-//   },
-//   "skin sores, swollen lymph nodes, fever": {
-//     disease: "Leprosy",
-//     advice: "Take prescribed antibiotics, avoid close contact with others, and follow up with regular medical evaluations."
-//   },
-//   "stomach pain, nausea, vomiting blood": {
-//     disease: "Peptic Ulcer",
-//     advice: "Avoid nonsteroidal anti-inflammatory drugs (NSAIDs), take prescribed medications, and avoid spicy or acidic foods."
-//   },
-//   "shortness of breath, chest pain, palpitations": {
-//     disease: "Pulmonary Embolism",
-//     advice: "Seek immediate medical attention, take prescribed blood thinners, and avoid prolonged immobility."
-//   },
-//   "chronic cough, wheezing, shortness of breath": {
-//     disease: "Bronchiectasis",
-//     advice: "Follow prescribed treatments, use airway clearance techniques, avoid lung irritants, and seek regular medical evaluations."
-//   },
-//   "fever, muscle pain, severe headache": {
-//     disease: "Lassa Fever",
-//     advice: "Seek immediate medical attention, avoid contact with rodents, and follow prescribed treatments. Early detection is crucial."
-//   },
-//   "joint pain, eye inflammation, urinary problems": {
-//     disease: "Reactive Arthritis",
-//     advice: "Take prescribed anti-inflammatory medications, engage in physical therapy, and seek regular medical evaluations."
-//   },
-//   "painful urination, blood in urine, fever": {
-//     disease: "Urinary Tract Infection (UTI)",
-//     advice: "Stay hydrated, take prescribed antibiotics, and maintain good hygiene to prevent future infections."
-//   },
-//   "persistent fever, muscle pain, bleeding gums": {
-//     disease: "Dengue Fever",
-//     advice: "Seek immediate medical attention, stay hydrated, avoid mosquito bites, and take over-the-counter pain relievers as needed."
-//   },
-//   "sudden vision loss, eye pain, headache": {
-//     disease: "Glaucoma",
-//     advice: "Seek immediate medical evaluation, follow prescribed treatments, and schedule regular eye check-ups."
-//   },
-//   "frequent urination, increased thirst, blurred vision": {
-//     disease: "Type 2 Diabetes",
-//     advice: "Monitor blood sugar levels regularly, follow a balanced diet, engage in regular exercise, and take prescribed medications."
-//   },
-//   "fever, chills, swollen glands, sore throat": {
-//     disease: "Tonsillitis",
-//     advice: "Rest, stay hydrated, avoid irritants, and take prescribed antibiotics if bacterial. Surgery may be considered in chronic cases."
-//   },
-//   "chest pain, shortness of breath, sweating": {
-//     disease: "Heart Attack",
-//     advice: "Seek immediate medical attention, take prescribed medications, and avoid exertion. Aspirin may be recommended as first aid."
-//   },
-//   "fatigue, weakness, pale skin": {
-//     disease: "Iron-Deficiency Anemia",
-//     advice: "Increase iron intake through diet or supplements, take prescribed iron supplements, and avoid excessive caffeine."
-//   },
-//   "joint pain, skin rash, fatigue": {
-//     disease: "Systemic Lupus Erythematosus (SLE)",
-//     advice: "Follow prescribed treatments, avoid sun exposure, and engage in regular check-ups to monitor the condition."
-//   },
-//   "unexplained weight loss, night sweats, swollen lymph nodes": {
-//     disease: "Lymphoma",
-//     advice: "Seek medical evaluation, follow prescribed treatments, and consider lifestyle changes to support overall health."
-//   },
-//   "persistent cough, coughing up blood, chest pain": {
-//     disease: "Tuberculosis (TB)",
-//     advice: "Take prescribed antibiotics for the full duration, avoid close contact with others, and maintain good hygiene."
-//   },
-//   "abdominal pain, diarrhea, blood in stool": {
-//     disease: "Ulcerative Colitis",
-//     advice: "Follow prescribed medications, avoid trigger foods, and manage stress. Regular medical follow-ups are important."
-//   },
-//   "severe headache, neck pain, sensitivity to light": {
-//     disease: "Encephalitis",
-//     advice: "Seek immediate medical attention, follow prescribed antiviral or antibacterial treatments, and rest."
-//   },
-//   "fatigue, joint pain, skin thickening": {
-//     disease: "Scleroderma",
-//     advice: "Follow prescribed treatments, protect your skin from injury, and engage in physical therapy to maintain mobility."
-//   },
-//   "frequent hunger, excessive thirst, frequent urination": {
-//     disease: "Prediabetes",
-//     advice: "Adopt a healthy diet, increase physical activity, monitor blood sugar levels, and consult with a healthcare provider."
-//   },
-//   "sudden severe headache, nausea, confusion": {
-//     disease: "Subarachnoid Hemorrhage",
-//     advice: "Seek immediate medical attention, avoid physical exertion, and follow prescribed treatments to manage the condition."
-//   },
-//   "persistent fever, weight loss, night sweats": {
-//     disease: "Hodgkin's Lymphoma",
-//     advice: "Seek medical evaluation, follow prescribed treatments, and maintain a healthy lifestyle to support recovery."
-//   },
-//   "weakness, numbness, vision loss": {
-//     disease: "Multiple Sclerosis (MS)",
-//     advice: "Follow prescribed treatments, engage in physical therapy, manage stress, and maintain a balanced diet."
-//   },
-//   "persistent ear pain, discharge, hearing loss": {
-//     disease: "Chronic Otitis Media",
-//     advice: "Take prescribed antibiotics, avoid inserting objects into the ear, and consider surgical options if recommended."
-//   },
-//   "high fever, chills, muscle pain": {
-//     disease: "Malaria",
-//     advice: "Seek immediate medical attention, take prescribed antimalarial medications, and avoid mosquito bites."
-//   },
-//   "severe abdominal pain, bloating, vomiting": {
-//     disease: "Intestinal Obstruction",
-//     advice: "Seek immediate medical attention. Surgery may be required to remove the obstruction and prevent complications."
-//   },
-//   "persistent fatigue, sore throat, swollen lymph nodes": {
-//     disease: "Chronic Fatigue Syndrome (CFS)",
-//     advice: "Engage in gentle physical activity, manage stress, and consult with a healthcare provider for tailored treatment options."
-//   },
-//   "persistent sore throat, difficulty swallowing, hoarseness": {
-//     disease: "Throat Cancer",
-//     advice: "Seek immediate medical evaluation, avoid smoking and alcohol, and follow prescribed treatments."
-//   },
-//   "persistent pain, swelling, and redness in one leg": {
-//     disease: "Deep Vein Thrombosis (DVT)",
-//     advice: "Seek immediate medical attention, take prescribed blood thinners, and avoid prolonged immobility."
-//   },
-//   "persistent bloating, pelvic pain, frequent urination": {
-//     disease: "Ovarian Cancer",
-//     advice: "Seek medical evaluation, follow prescribed treatments, and consider lifestyle changes to improve overall health."
-//   },
-//   "persistent joint pain, fatigue, dry eyes": {
-//     disease: "Rheumatoid Arthritis",
-//     advice: "Follow prescribed medications, engage in physical therapy, and avoid overexertion to manage symptoms."
-//   },
-//   "frequent headaches, nausea, sensitivity to light and sound": {
-//     disease: "Cluster Headaches",
-//     advice: "Avoid known triggers, follow prescribed treatments, and maintain a regular sleep schedule."
-//   },
-//   "severe stomach pain, vomiting, unable to pass gas": {
-//     disease: "Bowel Obstruction",
-//     advice: "Seek immediate medical attention. Surgery may be necessary to remove the obstruction."
-//   },
-//   "persistent sore throat, white patches on tonsils, fever": {
-//     disease: "Strep Throat",
-//     advice: "Take prescribed antibiotics, rest, stay hydrated, and avoid close contact with others."
-//   },
-//   "persistent cough, chest tightness, shortness of breath": {
-//     disease: "Chronic Obstructive Pulmonary Disease (COPD)",
-//     advice: "Avoid smoking, use prescribed inhalers, engage in pulmonary rehabilitation, and avoid lung irritants."
-//   },
-//   "painful urination, pelvic pain, cloudy urine": {
-//     disease: "Kidney Infection (Pyelonephritis)",
-//     advice: "Take prescribed antibiotics, stay hydrated, and follow up with your healthcare provider for further evaluation."
-//   },
-//   "fever, fatigue, rash, joint pain": {
-//     disease: "Rheumatic Fever",
-//     advice: "Take prescribed antibiotics and anti-inflammatory medications, rest, and avoid overexertion."
-//   },
-//   "persistent sore throat, difficulty swallowing, ear pain": {
-//     disease: "Tonsillar Abscess",
-//     advice: "Seek immediate medical attention, take prescribed antibiotics, and avoid swallowing solid foods until symptoms improve."
-//   },
-//   "persistent back pain, difficulty walking, numbness": {
-//     disease: "Spinal Stenosis",
-//     advice: "Engage in physical therapy, avoid heavy lifting, and consider surgical options if recommended by your healthcare provider."
-//   },
-//   "sudden weakness, slurred speech, facial drooping": {
-//     disease: "Stroke",
-//     advice: "Seek immediate medical attention, follow prescribed treatments, and engage in physical and speech therapy for recovery."
-//   },
-//   "severe muscle pain, stiffness, weakness": {
-//     disease: "Polymyalgia Rheumatica",
-//     advice: "Take prescribed corticosteroids, engage in gentle physical activity, and seek regular medical evaluations."
-//   },
-//   "persistent fatigue, weakness, easy bruising": {
-//     disease: "Chronic Myeloid Leukemia (CML)",
-//     advice: "Follow prescribed treatments, engage in regular check-ups, and maintain a healthy lifestyle to support recovery."
-//   },
-//   "persistent chest pain, shortness of breath, dizziness": {
-//     disease: "Angina",
-//     advice: "Follow prescribed medications, avoid heavy physical activity, and consider lifestyle changes to reduce stress."
-//   },
-//   "persistent cough, weight loss, fatigue": {
-//     disease: "Non-Hodgkin's Lymphoma",
-//     advice: "Seek medical evaluation, follow prescribed treatments, and maintain a healthy lifestyle to support recovery."
-//   },
-//   "persistent pain in the lower abdomen, blood in urine": {
-//     disease: "Bladder Cancer",
-//     advice: "Seek immediate medical evaluation, follow prescribed treatments, and avoid smoking to reduce the risk of recurrence."
-//   },
-//   "persistent cough, shortness of breath, chest pain": {
-//     disease: "Mesothelioma",
-//     advice: "Seek immediate medical evaluation, follow prescribed treatments, and avoid exposure to asbestos."
-//   },
-//   "persistent fever, fatigue, weight loss": {
-//     disease: "Leishmaniasis",
-//     advice: "Seek medical evaluation, follow prescribed treatments, and avoid sandfly bites to prevent infection."
-//   },
-//   "persistent sore throat, hoarseness, difficulty breathing": {
-//     disease: "Laryngeal Cancer",
-//     advice: "Seek immediate medical evaluation, avoid smoking, and follow prescribed treatments."
-//   },
-//   "persistent headache, nausea, double vision": {
-//     disease: "Pituitary Tumor",
-//     advice: "Seek medical evaluation, follow prescribed treatments, and engage in regular check-ups to monitor the condition."
-//   },
-//   "persistent fever, chills, night sweats": {
-//     disease: "Brucellosis",
-//     advice: "Seek medical evaluation, take prescribed antibiotics, and avoid consuming unpasteurized dairy products."
-//   },
-//   "severe joint pain, swelling, redness": {
-//     disease: "Psoriatic Arthritis",
-//     advice: "Follow prescribed medications, engage in physical therapy, and avoid triggers that worsen symptoms."
-//   },
-//   "chest pain, shortness of breath": {
-//     "disease": "Myocardial Infarction",
-//     "advice": "Call emergency services immediately and seek medical attention."
-//   },
-//   "fever, cough, difficulty breathing": {
-//     "disease": "COVID-19",
-//     "advice": "Get tested for COVID-19, self-isolate, and follow public health guidelines."
-//   },
-//   "abdominal pain, diarrhea, vomiting": {
-//     "disease": "Gastroenteritis",
-//     "advice": "Stay hydrated and consult a healthcare professional if symptoms persist."
-//   },
-//   "persistent cough, weight loss, night sweats": {
-//     "disease": "Tuberculosis",
-//     "advice": "Seek medical evaluation and adhere to prescribed tuberculosis treatment."
-//   },
-//   "nausea, vomiting, abdominal pain": {
-//     "disease": "Appendicitis",
-//     "advice": "Seek emergency medical evaluation for possible surgical intervention."
-//   },
-//   "fatigue, joint pain, rash": {
-//     "disease": "Lupus",
-//     "advice": "Follow prescribed medications and manage symptoms with lifestyle changes."
-//   },
-//   "sudden headache, vision changes, nausea": {
-//     "disease": "Migraine",
-//     "advice": "Avoid known triggers and consider preventive medications."
-//   },
-//   "persistent fatigue, weakness, pale skin": {
-//     "disease": "Anemia",
-//     "advice": "Consult a healthcare provider for dietary recommendations and possible supplementation."
-//   },
-//   "severe headache, nausea, sensitivity to light": {
-//     "disease": "Migraine",
-//     "advice": "Rest in a dark, quiet room and consider over-the-counter pain relief."
-//   },
-//   "tingling, numbness, weakness": {
-//     "disease": "Multiple Sclerosis",
-//     "advice": "Work closely with a neurologist to manage symptoms and treatment."
-//   },
-//   "throat pain, difficulty swallowing, fever": {
-//     "disease": "Strep Throat",
-//     "advice": "Seek medical evaluation for possible antibiotic treatment."
-//   },
-//   "abdominal bloating, gas, diarrhea": {
-//     "disease": "Irritable Bowel Syndrome (IBS)",
-//     "advice": "Manage triggers through dietary changes and stress management."
-//   },
-//   "numbness in hands and feet, muscle weakness": {
-//     "disease": "Diabetic Neuropathy",
-//     "advice": "Control blood sugar levels and consult a healthcare provider for management."
-//   },
-//   "persistent cough, wheezing, chest tightness": {
-//     "disease": "Asthma",
-//     "advice": "Follow prescribed asthma action plans and carry rescue inhalers."
-//   },
-//   "itchy skin, rash, hives": {
-//     "disease": "Allergic Reaction",
-//     "advice": "Avoid known allergens and consider antihistamines as needed."
-//   },
-//   "painful urination, frequent urination": {
-//     "disease": "Urinary Tract Infection",
-//     "advice": "Seek medical evaluation for possible antibiotic treatment."
-//   },
-//   "bloating, abdominal pain, changes in bowel habits": {
-//     "disease": "Celiac Disease",
-//     "advice": "Adhere to a strict gluten-free diet and consult a dietitian."
-//   },
-//   "sudden weakness, slurred speech, facial drooping": {
-//     "disease": "Stroke",
-//     "advice": "Seek emergency medical attention immediately."
-//   },
-//   "persistent sore throat, white patches on tonsils": {
-//     "disease": "Tonsillitis",
-//     "advice": "Seek medical evaluation for possible treatment options."
-//   },
-//   "severe abdominal pain, fever, jaundice": {
-//     "disease": "Cholecystitis",
-//     "advice": "Seek immediate medical evaluation, possibly for surgery."
-//   },
-//   "pain in the chest, shoulder, arm": {
-//     "disease": "Angina",
-//     "advice": "Seek medical evaluation to assess heart health."
-//   },
-//   "swollen lymph nodes, fever, fatigue": {
-//     "disease": "Lymphoma",
-//     "advice": "Consult an oncologist for evaluation and treatment options."
-//   },
-//   "muscle cramps, weakness, fatigue": {
-//     "disease": "Electrolyte Imbalance",
-//     "advice": "Replenish fluids and electrolytes, and consult a healthcare provider."
-//   },
-//   "pain in the joints, fatigue, fever": {
-//     "disease": "Rheumatoid Arthritis",
-//     "advice": "Follow prescribed medications and consider physical therapy."
-//   },
-//   "confusion, memory loss, difficulty concentrating": {
-//     "disease": "Dementia",
-//     "advice": "Seek medical evaluation and consider supportive therapies."
-//   },
-//   "sensitivity to light, redness in eyes, vision problems": {
-//     "disease": "Uveitis",
-//     "advice": "Consult an ophthalmologist for evaluation and treatment."
-//   },
-//   "painless lump, change in bowel habits": {
-//     "disease": "Colon Cancer",
-//     "advice": "Seek medical evaluation for screening and possible treatment."
-//   },
-//   "chronic cough, wheezing, chest pain": {
-//     "disease": "Chronic Obstructive Pulmonary Disease (COPD)",
-//     "advice": "Follow prescribed medications and pulmonary rehabilitation."
-//   },
-//   "sudden weight loss, fatigue, skin changes": {
-//     "disease": "Cancer",
-//     "advice": "Seek immediate medical evaluation for diagnostic testing."
-//   },
-//   "excessive thirst, frequent urination, fatigue": {
-//     "disease": "Diabetes Mellitus",
-//     "advice": "Manage blood sugar levels with diet, exercise, and medication."
-//   },
-//   "difficulty focusing, mood swings, changes in sleep patterns": {
-//     "disease": "Bipolar Disorder",
-//     "advice": "Seek mental health support and consider medication management."
-//   },
-//   "numbness, tingling, muscle weakness": {
-//     "disease": "Guillain-Barré Syndrome",
-//     "advice": "Seek immediate medical attention for evaluation."
-//   },
-//   "chronic pain, fatigue, sleep disturbances": {
-//     "disease": "Fibromyalgia",
-//     "advice": "Consider multidisciplinary management for symptom relief."
-//   },
-//   "loss of balance, dizziness, headache": {
-//     "disease": "Vestibular Disorders",
-//     "advice": "Consult an ear, nose, and throat specialist for evaluation."
-//   },
-//   "pain in the lower back, leg numbness": {
-//     "disease": "Herniated Disc",
-//     "advice": "Consult a healthcare provider for treatment options."
-//   },
-//   "stomach cramps, diarrhea, fever": {
-//     "disease": "Food Poisoning",
-//     "advice": "Stay hydrated and consult a healthcare provider if symptoms worsen."
-//   },
 
-//   "thickened skin, itching, patches on skin": {
-//     "disease": "Psoriasis",
-//     "advice": "Follow prescribed topical treatments and lifestyle modifications."
-//   },
-//   "fever, fatigue, headache": {
-//     "disease": "Viral Infection",
-//     "advice": "Rest, stay hydrated, and consult a healthcare provider if symptoms worsen."
-//   },
-//   "dry eyes, mouth, fatigue": {
-//     "disease": "Sjogren's Syndrome",
-//     "advice": "Consult a healthcare provider for symptom management."
-//   },
-//   "painful joints, morning stiffness, fatigue": {
-//     "disease": "Osteoarthritis",
-//     "advice": "Follow prescribed treatment plans and consider physical therapy."
-//   },
-//   "severe headaches, visual disturbances, high blood pressure": {
-//     "disease": "Preeclampsia",
-//     "advice": "Seek immediate medical evaluation during pregnancy."
-//   },
-//   "abdominal pain, fatigue, nausea": {
-//     "disease": "Chronic Pancreatitis",
-//     "advice": "Consult a healthcare provider for dietary recommendations and management."
-//   },
-//   "severe headache, neck stiffness, fever": {
-//     "disease": "Meningitis",
-//     "advice": "Seek emergency medical evaluation immediately."
-//   },
-//   "chronic cough, frequent infections, fatigue": {
-//     "disease": "Cystic Fibrosis",
-//     "advice": "Follow a comprehensive care plan with healthcare providers."
-//   }
-// };
+
+
+    "chronic fatigue, joint pain, muscle pain, sleep disturbances": {
+    "disease": "Fibromyalgia",
+    "diagnosis": {
+      "testsOrdered": ["Physical examination", "Pain index assessment"],
+      "confirmedBy": "Symptom history and physical evaluation"
+    },
+    "symptoms": [
+      "Chronic fatigue",
+      "Joint pain",
+      "Muscle pain",
+      "Sleep disturbances"
+    ],
+    "prescriptions": [
+      {
+        "name": "Duloxetine (Cymbalta)",
+        "dosage": "30mg daily, increased as needed",
+        "purpose": "Antidepressant and pain relief"
+      }
+    ],
+    "treatmentPlan": {
+      "lifestyleChanges": [
+        "Engage in low-impact exercise",
+        "Practice good sleep hygiene"
+      ],
+      "therapies": ["Cognitive behavioral therapy"]
+    },
+    "advice": "Consider stress management techniques and regular physical activity.",
+    "followUpPlan": "Regular follow-ups to assess treatment effectiveness.",
+    "preventiveMeasures": ["Maintain a healthy lifestyle", "Avoid excessive stress"]
+  },
+
+  "fever, rash, joint pain, fatigue": {
+    "disease": "Systemic Lupus Erythematosus (SLE)",
+    "diagnosis": {
+      "testsOrdered": ["Antinuclear antibody (ANA) test", "Complete blood count (CBC)"],
+      "confirmedBy": "Positive ANA test and symptom history"
+    },
+    "symptoms": [
+      "Fever",
+      "Rash",
+      "Joint pain",
+      "Fatigue"
+    ],
+    "prescriptions": [
+      {
+        "name": "Hydroxychloroquine",
+        "dosage": "200mg daily",
+        "purpose": "Manage lupus symptoms"
+      }
+    ],
+    "treatmentPlan": {
+      "lifestyleChanges": [
+        "Avoid sun exposure",
+        "Follow a healthy diet"
+      ],
+      "therapies": ["Physical therapy if needed"]
+    },
+    "advice": "Monitor symptoms closely and report any new symptoms.",
+    "followUpPlan": "Regular rheumatology follow-ups.",
+    "preventiveMeasures": ["Avoid sun exposure", "Regular health check-ups"]
+  },
+
+  "painful urination, increased urinary frequency, lower abdominal pain": {
+    "disease": "Urinary Tract Infection (UTI)",
+    "diagnosis": {
+      "testsOrdered": ["Urine culture", "Urinalysis"],
+      "confirmedBy": "Positive culture results"
+    },
+    "symptoms": [
+      "Painful urination",
+      "Increased urinary frequency",
+      "Lower abdominal pain"
+    ],
+    "prescriptions": [
+      {
+        "name": "Nitrofurantoin",
+        "dosage": "100mg twice daily for 5 days",
+        "purpose": "Antibiotic treatment"
+      }
+    ],
+    "treatmentPlan": {
+      "lifestyleChanges": [
+        "Increase fluid intake",
+        "Practice good personal hygiene"
+      ],
+      "therapies": ["Pain relief medications if needed"]
+    },
+    "advice": "Complete the full course of antibiotics and monitor for recurrent symptoms.",
+    "followUpPlan": "Follow-up if symptoms do not improve within a few days.",
+    "preventiveMeasures": ["Stay hydrated", "Urinate after intercourse"]
+  },
+
+  "nausea, vomiting, jaundice, dark urine": {
+    "disease": "Hepatitis",
+    "diagnosis": {
+      "testsOrdered": ["Liver function tests", "Hepatitis virus panel"],
+      "confirmedBy": "Positive test results"
+    },
+    "symptoms": [
+      "Nausea",
+      "Vomiting",
+      "Jaundice",
+      "Dark urine"
+    ],
+    "prescriptions": [
+      {
+        "name": "Antivirals (specific to type)",
+        "dosage": "As prescribed",
+        "purpose": "Manage viral hepatitis"
+      }
+    ],
+    "treatmentPlan": {
+      "lifestyleChanges": [
+        "Avoid alcohol",
+        "Eat a balanced diet"
+      ],
+      "therapies": ["Monitor liver function regularly"]
+    },
+    "advice": "Follow up with a healthcare provider for ongoing management.",
+    "followUpPlan": "Regular follow-ups to monitor liver function.",
+    "preventiveMeasures": ["Vaccination for hepatitis A and B", "Safe food practices"]
+  },
+
+  "swelling, pain, redness in joints, decreased range of motion": {
+    "disease": "Gout",
+    "diagnosis": {
+      "testsOrdered": ["Joint fluid analysis", "Blood uric acid levels"],
+      "confirmedBy": "Joint fluid analysis showing urate crystals"
+    },
+    "symptoms": [
+      "Swelling",
+      "Pain",
+      "Redness in joints",
+      "Decreased range of motion"
+    ],
+    "prescriptions": [
+      {
+        "name": "Colchicine",
+        "dosage": "1.2mg at onset, then 0.6mg after 1 hour",
+        "purpose": "Manage acute gout attack"
+      },
+      {
+        "name": "Allopurinol",
+        "dosage": "100mg daily",
+        "purpose": "Prevent future attacks"
+      }
+    ],
+    "treatmentPlan": {
+      "lifestyleChanges": [
+        "Avoid purine-rich foods",
+        "Stay hydrated"
+      ],
+      "therapies": ["Physical therapy if needed"]
+    },
+    "advice": "Monitor diet and medication adherence.",
+    "followUpPlan": "Regular follow-ups to monitor uric acid levels.",
+    "preventiveMeasures": ["Maintain a healthy diet", "Limit alcohol intake"]
+  },
+
+  "palpitations, lightheadedness, fatigue, shortness of breath": {
+    "disease": "Atrial Fibrillation",
+    "diagnosis": {
+      "testsOrdered": ["ECG", "Echocardiogram"],
+      "confirmedBy": "ECG findings of irregular heart rhythm"
+    },
+    "symptoms": [
+      "Palpitations",
+      "Lightheadedness",
+      "Fatigue",
+      "Shortness of breath"
+    ],
+    "prescriptions": [
+      {
+        "name": "Anticoagulants (e.g., Warfarin)",
+        "dosage": "As prescribed",
+        "purpose": "Prevent blood clots"
+      },
+      {
+        "name": "Beta-blockers",
+        "dosage": "As prescribed",
+        "purpose": "Control heart rate"
+      }
+    ],
+    "treatmentPlan": {
+      "lifestyleChanges": [
+        "Manage stress",
+        "Avoid excessive caffeine and alcohol"
+      ],
+      "therapies": ["Cardioversion if needed"]
+    },
+    "advice": "Monitor heart rate and report any significant changes.",
+    "followUpPlan": "Regular cardiology follow-ups.",
+    "preventiveMeasures": ["Maintain a healthy lifestyle", "Regular exercise"]
+  },
+
+
+  "itching, redness, rash, swelling": {
+    "disease": "Allergic Dermatitis",
+    "diagnosis": {
+      "testsOrdered": ["Patch testing", "Skin examination"],
+      "confirmedBy": "History of exposure and symptom evaluation"
+    },
+    "symptoms": [
+      "Itching",
+      "Redness",
+      "Rash",
+      "Swelling"
+    ],
+    "prescriptions": [
+      {
+        "name": "Topical corticosteroids",
+        "dosage": "Apply twice daily until symptoms resolve",
+        "purpose": "Reduce inflammation"
+      }
+    ],
+    "treatmentPlan": {
+      "lifestyleChanges": [
+        "Avoid known allergens",
+        "Keep the skin moisturized"
+      ],
+      "therapies": ["Oral antihistamines if needed"]
+    },
+    "advice": "Monitor for signs of secondary infection.",
+    "followUpPlan": "Follow up if symptoms persist beyond two weeks.",
+    "preventiveMeasures": ["Identify and avoid allergens", "Maintain skin hygiene"]
+  },
+
+
+  "red, swollen gums, bleeding while brushing, bad breath": {
+    "disease": "Gingivitis",
+    "diagnosis": {
+      "testsOrdered": ["Dental examination", "Periodontal probing"],
+      "confirmedBy": "Clinical evaluation"
+    },
+    "symptoms": [
+      "Red, swollen gums",
+      "Bleeding while brushing",
+      "Bad breath"
+    ],
+    "prescriptions": [
+      {
+        "name": "Chlorhexidine mouthwash",
+        "dosage": "Twice daily",
+        "purpose": "Reduce bacteria in the mouth"
+      }
+    ],
+    "treatmentPlan": {
+      "lifestyleChanges": [
+        "Practice good oral hygiene",
+        "Regular dental check-ups"
+      ],
+      "therapies": ["Professional dental cleaning if needed"]
+    },
+    "advice": "Floss daily to maintain gum health.",
+    "followUpPlan": "Follow up with a dentist in six months.",
+    "preventiveMeasures": ["Brush teeth twice daily", "Avoid tobacco"]
+  },
+
+
+  "pain in the back, numbness, difficulty walking, loss of bladder control": {
+    "disease": "Herniated Disc",
+    "diagnosis": {
+      "testsOrdered": ["MRI", "CT scan"],
+      "confirmedBy": "Imaging results indicating herniation"
+    },
+    "symptoms": [
+      "Pain in the back",
+      "Numbness",
+      "Difficulty walking",
+      "Loss of bladder control"
+    ],
+    "prescriptions": [
+      {
+        "name": "Pain medications (e.g., NSAIDs)",
+        "dosage": "As needed",
+        "purpose": "Manage pain"
+      }
+    ],
+    "treatmentPlan": {
+      "lifestyleChanges": [
+        "Avoid heavy lifting",
+        "Engage in physical therapy"
+      ],
+      "therapies": ["Surgery if severe symptoms persist"]
+    },
+    "advice": "Maintain good posture and use ergonomic furniture.",
+    "followUpPlan": "Follow-up after treatment for symptom management.",
+    "preventiveMeasures": ["Regular exercise", "Maintain healthy body weight"]
+  },
+
+
+
+    "persistent cough, chest pain, fatigue, wheezing": {
+      "disease": "Chronic Bronchitis",
+      "diagnosis": {
+        "testsOrdered": ["Pulmonary function tests", "Chest X-ray"],
+        "confirmedBy": "Clinical history and lung function tests"
+      },
+      "symptoms": [
+        "Persistent cough",
+        "Chest pain",
+        "Fatigue",
+        "Wheezing"
+      ],
+      "prescriptions": [
+        {
+          "name": "Bronchodilators",
+          "dosage": "As prescribed",
+          "purpose": "Open airways to ease breathing"
+        },
+        {
+          "name": "Inhaled corticosteroids",
+          "dosage": "As prescribed",
+          "purpose": "Reduce inflammation in the lungs"
+        }
+      ],
+      "treatmentPlan": {
+        "lifestyleChanges": [
+          "Quit smoking",
+          "Avoid lung irritants"
+        ],
+        "therapies": ["Pulmonary rehabilitation if needed"]
+      },
+      "advice": "Stay hydrated and avoid extreme temperatures.",
+      "followUpPlan": "Regular follow-ups to monitor lung function.",
+      "preventiveMeasures": ["Vaccinations (e.g., flu shot)", "Avoid exposure to pollutants"]
+    },
+  
+    "skin rash, fatigue, fever, joint pain": {
+      "disease": "Psoriatic Arthritis",
+      "diagnosis": {
+        "testsOrdered": ["Physical examination", "Blood tests for inflammation"],
+        "confirmedBy": "Clinical history and symptom evaluation"
+      },
+      "symptoms": [
+        "Skin rash",
+        "Fatigue",
+        "Fever",
+        "Joint pain"
+      ],
+      "prescriptions": [
+        {
+          "name": "NSAIDs (e.g., Ibuprofen)",
+          "dosage": "As prescribed for pain relief",
+          "purpose": "Reduce inflammation and pain"
+        },
+        {
+          "name": "DMARDs (e.g., Methotrexate)",
+          "dosage": "As prescribed",
+          "purpose": "Control disease progression"
+        }
+      ],
+      "treatmentPlan": {
+        "lifestyleChanges": [
+          "Maintain a healthy weight",
+          "Engage in regular exercise"
+        ],
+        "therapies": ["Physical therapy if needed"]
+      },
+      "advice": "Manage stress to help control flare-ups.",
+      "followUpPlan": "Regular rheumatology follow-ups to monitor disease activity.",
+      "preventiveMeasures": ["Avoid known triggers", "Stay hydrated"]
+    },
+  
+  
+    "joint stiffness, swelling, fatigue, fever": {
+      "disease": "Osteoarthritis",
+      "diagnosis": {
+        "testsOrdered": ["X-rays", "MRI"],
+        "confirmedBy": "Clinical history and imaging findings"
+      },
+      "symptoms": [
+        "Joint stiffness",
+        "Swelling",
+        "Fatigue",
+        "Fever"
+      ],
+      "prescriptions": [
+        {
+          "name": "Acetaminophen",
+          "dosage": "As needed for pain relief",
+          "purpose": "Manage pain"
+        },
+        {
+          "name": "Topical NSAIDs",
+          "dosage": "Apply to affected areas as needed",
+          "purpose": "Reduce local inflammation"
+        }
+      ],
+      "treatmentPlan": {
+        "lifestyleChanges": [
+          "Engage in low-impact exercises",
+          "Maintain a healthy weight"
+        ],
+        "therapies": ["Physical therapy"]
+      },
+      "advice": "Warm up before exercising to reduce stiffness.",
+      "followUpPlan": "Regular follow-ups to monitor joint function.",
+      "preventiveMeasures": ["Healthy lifestyle choices", "Avoid joint injuries"]
+    },
+  
+    "chronic fatigue, muscle pain, sleep disturbances, memory issues": {
+      "disease": "Chronic Fatigue Syndrome (CFS)",
+      "diagnosis": {
+        "testsOrdered": ["Exclusion of other conditions"],
+        "confirmedBy": "Persistent fatigue lasting more than 6 months"
+      },
+      "symptoms": [
+        "Chronic fatigue",
+        "Muscle pain",
+        "Sleep disturbances",
+        "Memory issues"
+      ],
+      "prescriptions": [
+        {
+          "name": "Antidepressants",
+          "dosage": "As prescribed",
+          "purpose": "Manage symptoms"
+        }
+      ],
+      "treatmentPlan": {
+        "lifestyleChanges": [
+          "Establish a regular sleep schedule",
+          "Gradually increase physical activity"
+        ],
+        "therapies": ["Cognitive behavioral therapy (CBT) if needed"]
+      },
+      "advice": "Pace activities to avoid exacerbating symptoms.",
+      "followUpPlan": "Regular follow-ups to monitor symptoms and treatment response.",
+      "preventiveMeasures": ["Awareness of triggers", "Stress management techniques"]
+    },
+  
+    "fever, cough, headache, muscle aches": {
+      "disease": "Typhoid Fever",
+      "diagnosis": {
+        "testsOrdered": ["Blood cultures", "Widal test"],
+        "confirmedBy": "Positive blood culture for Salmonella Typhi"
+      },
+      "symptoms": [
+        "Fever",
+        "Cough",
+        "Headache",
+        "Muscle aches"
+      ],
+      "prescriptions": [
+        {
+          "name": "Ciprofloxacin",
+          "dosage": "500mg twice daily for 7 days",
+          "purpose": "Antibiotic treatment"
+        }
+      ],
+      "treatmentPlan": {
+        "lifestyleChanges": [
+          "Stay hydrated",
+          "Rest"
+        ],
+        "therapies": ["Symptomatic treatment for fever and pain"]
+      },
+      "advice": "Seek medical attention if symptoms worsen.",
+      "followUpPlan": "Regular follow-ups to monitor recovery.",
+      "preventiveMeasures": ["Vaccination and safe food practices"]
+    },
+  
+    "shortness of breath, chest tightness, anxiety": {
+      "disease": "Panic Disorder",
+      "diagnosis": {
+        "testsOrdered": ["Psychiatric evaluation"],
+        "confirmedBy": "Clinical history and symptom assessment"
+      },
+      "symptoms": [
+        "Shortness of breath",
+        "Chest tightness",
+        "Anxiety"
+      ],
+      "prescriptions": [
+        {
+          "name": "Selective serotonin reuptake inhibitors (SSRIs)",
+          "dosage": "As prescribed",
+          "purpose": "Manage anxiety symptoms"
+        }
+      ],
+      "treatmentPlan": {
+        "lifestyleChanges": [
+          "Practice relaxation techniques",
+          "Regular physical activity"
+        ],
+        "therapies": ["Cognitive behavioral therapy (CBT)"]
+      },
+      "advice": "Keep a journal of panic episodes to identify triggers.",
+      "followUpPlan": "Regular psychiatric follow-ups to monitor progress.",
+      "preventiveMeasures": ["Awareness of anxiety symptoms", "Stress management techniques"]
+    },
+  
+    "yellowing of skin, abdominal pain, fatigue": {
+      "disease": "Hepatitis A",
+      "diagnosis": {
+        "testsOrdered": ["Liver function tests", "Hepatitis A antibody test"],
+        "confirmedBy": "Positive Hepatitis A antibody test"
+      },
+      "symptoms": [
+        "Yellowing of skin",
+        "Abdominal pain",
+        "Fatigue"
+      ],
+      "prescriptions": [
+        {
+          "name": "Rest and hydration",
+          "dosage": "As needed",
+          "purpose": "Supportive care"
+        }
+      ],
+      "treatmentPlan": {
+        "lifestyleChanges": [
+          "Avoid alcohol",
+          "Eat a balanced diet"
+        ],
+        "therapies": ["Monitoring liver function"]
+      },
+      "advice": "Avoid sharing utensils or drinks to prevent transmission.",
+      "followUpPlan": "Regular follow-ups to monitor liver function.",
+      "preventiveMeasures": ["Vaccination and good hygiene practices"]
+    },
+  
+  
+    "unexplained weight loss, increased appetite, fatigue": {
+      "disease": "Hyperthyroidism",
+      "diagnosis": {
+        "testsOrdered": ["Thyroid function tests", "TSH level"],
+        "confirmedBy": "Elevated thyroid hormone levels"
+      },
+      "symptoms": [
+        "Unexplained weight loss",
+        "Increased appetite",
+        "Fatigue"
+      ],
+      "prescriptions": [
+        {
+          "name": "Methimazole",
+          "dosage": "As prescribed",
+          "purpose": "Reduce thyroid hormone production"
+        }
+      ],
+      "treatmentPlan": {
+        "lifestyleChanges": [
+          "Manage stress levels",
+          "Engage in regular exercise"
+        ],
+        "therapies": ["Regular monitoring of thyroid levels"]
+      },
+      "advice": "Avoid excessive caffeine intake.",
+      "followUpPlan": "Regular endocrinology follow-ups to monitor thyroid function.",
+      "preventiveMeasures": ["Regular thyroid screenings", "Awareness of symptoms"]
+    },
+
+  
+    "painful swelling in the joints, fatigue, fever": {
+      "disease": "Rheumatic Fever",
+      "diagnosis": {
+        "testsOrdered": ["Throat culture", "Blood tests for inflammation"],
+        "confirmedBy": "History of streptococcal infection"
+      },
+      "symptoms": [
+        "Painful swelling in the joints",
+        "Fatigue",
+        "Fever"
+      ],
+      "prescriptions": [
+        {
+          "name": "Penicillin",
+          "dosage": "As prescribed for prevention",
+          "purpose": "Prevent streptococcal infections"
+        }
+      ],
+      "treatmentPlan": {
+        "lifestyleChanges": [
+          "Stay active but avoid overexertion",
+          "Rest when needed"
+        ],
+        "therapies": ["Physical therapy if needed"]
+      },
+      "advice": "Report any recurrent sore throat to a healthcare provider.",
+      "followUpPlan": "Regular follow-ups to monitor heart health.",
+      "preventiveMeasures": ["Prompt treatment of strep throat", "Awareness of symptoms"]
+    },
+  
+    "chronic abdominal pain, bloating, gas, diarrhea": {
+      "disease": "Crohn's Disease",
+      "diagnosis": {
+        "testsOrdered": ["Colonoscopy", "CT scan"],
+        "confirmedBy": "Endoscopic findings and biopsy"
+      },
+      "symptoms": [
+        "Chronic abdominal pain",
+        "Bloating",
+        "Gas",
+        "Diarrhea"
+      ],
+      "prescriptions": [
+        {
+          "name": "Anti-inflammatory drugs (e.g., Mesalamine)",
+          "dosage": "As prescribed",
+          "purpose": "Reduce inflammation"
+        }
+      ],
+      "treatmentPlan": {
+        "lifestyleChanges": [
+          "Follow a low-residue diet during flare-ups",
+          "Stay hydrated"
+        ],
+        "therapies": ["Nutritional counseling"]
+      },
+      "advice": "Keep a food diary to identify triggers.",
+      "followUpPlan": "Regular gastroenterology follow-ups to monitor disease activity.",
+      "preventiveMeasures": ["Awareness of symptoms", "Regular health screenings"]
+    },
+  
+    "severe headache, sensitivity to light, nausea, vomiting": {
+      "disease": "Tension-Type Headache",
+      "diagnosis": {
+        "testsOrdered": ["Clinical evaluation"],
+        "confirmedBy": "History and symptom evaluation"
+      },
+      "symptoms": [
+        "Severe headache",
+        "Sensitivity to light",
+        "Nausea",
+        "Vomiting"
+      ],
+      "prescriptions": [
+        {
+          "name": "NSAIDs (e.g., Ibuprofen)",
+          "dosage": "As needed for pain relief",
+          "purpose": "Reduce pain and inflammation"
+        }
+      ],
+      "treatmentPlan": {
+        "lifestyleChanges": [
+          "Practice stress management techniques",
+          "Ensure proper posture"
+        ],
+        "therapies": ["Physical therapy if needed"]
+      },
+      "advice": "Take breaks from screens to reduce strain.",
+      "followUpPlan": "Regular follow-ups if headaches persist.",
+      "preventiveMeasures": ["Awareness of triggers", "Healthy lifestyle habits"]
+    },
+  
+    "persistent dry eyes, redness, blurred vision": {
+      "disease": "Dry Eye Syndrome",
+      "diagnosis": {
+        "testsOrdered": ["Schirmer's test", "Tear break-up time test"],
+        "confirmedBy": "Clinical history and symptom evaluation"
+      },
+      "symptoms": [
+        "Persistent dry eyes",
+        "Redness",
+        "Blurred vision"
+      ],
+      "prescriptions": [
+        {
+          "name": "Artificial tears",
+          "dosage": "As needed",
+          "purpose": "Lubricate eyes"
+        }
+      ],
+      "treatmentPlan": {
+        "lifestyleChanges": [
+          "Avoid dry or windy environments",
+          "Take breaks during screen time"
+        ],
+        "therapies": ["Warm compresses for eyes"]
+      },
+      "advice": "Stay hydrated and reduce screen time.",
+      "followUpPlan": "Regular eye care follow-ups to monitor symptoms.",
+      "preventiveMeasures": ["Awareness of environmental triggers", "Regular eye check-ups"]
+    },
+  
+  
+}
 
 
 
@@ -892,26 +1690,6 @@ export function getDiseaseAdvice(symptoms) {
   return matches.sort((a, b) => b.matchPercentage - a.matchPercentage);
 }
 
-//original code with a single disease
-
-// export function getDiseaseAdvice(symptoms) {
-//   console.log("getDiseaseAdvice called with symptoms:", symptoms);
-//   const skey = symptoms.join(", ").toLowerCase();
-
-//   for (const [symptomKey, data] of Object.entries(diseaseData)) {
-//     if (skey.split(", ").every(symptom => symptomKey.toLowerCase().includes(symptom))) {
-//       return {
-//         disease: data.disease,
-//         advice: data.advice
-//       };
-//     }
-//   }
-
-//   return {
-//     disease: "Unknown",
-//     advice: "Consult a healthcare provider for a more accurate diagnosis and advice."
-//   };
-// }
 
 export function getAllDiseases() {
   return Object.values(diseaseData).map(data => data.disease);

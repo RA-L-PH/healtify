@@ -1,62 +1,79 @@
-import { useEffect, useState } from 'react';
-import { getDiseaseAdvice, getAllDiseases } from '../../api/healthApi';
+import { useEffect, useRef, useState } from 'react';
+import { getDiseaseAdvice, getAllDiseases, getSymptomsList } from '../../api/healthApi';
 import Fuse from 'fuse.js';
-import ProgressBar from '../ProgressBar'; // Import the ProgressBar component
+import ProgressBar from '../ProgressBar';
+import Select from 'react-select';
 
 function HealthAnalysis() {
-  const [symptoms, setSymptoms] = useState('');
+  const [symptoms, setSymptoms] = useState([]);
   const [analysis, setAnalysis] = useState('');
   const [diseases, setDiseases] = useState([]);
   const [fuse, setFuse] = useState(null);
+  const [options, setOptions] = useState([]);
+  const [inputValue, setInputValue] = useState('');
+  const [singleSymptom, setSingleSymptom] = useState('');
+  const inputRef = useRef(null);
 
   useEffect(() => {
     const fetchDiseasesAndSymptoms = async () => {
       const allDiseases = await getAllDiseases();
       setDiseases(allDiseases);
 
-      const allSymptoms = allDiseases.flatMap(disease => disease.symptoms);
-
+      const allSymptoms = await getSymptomsList();
       const fuseInstance = new Fuse(allSymptoms, {
         threshold: 0.3,
         distance: 100,
-        minMatchCharLength: 2,
+        minMatchCharLength: 1,
       });
       setFuse(fuseInstance);
+      setOptions(allSymptoms.map(symptom => ({ value: symptom, label: symptom })));
     };
 
     fetchDiseasesAndSymptoms();
   }, []);
 
-  const handleSymptomChange = (event) => {
-    setSymptoms(event.target.value);
+  const handleSymptomChange = (selectedOptions) => {
+    const selectedSymptoms = selectedOptions ? selectedOptions.map(option => option.value) : [];
+    setSymptoms(selectedSymptoms);
+  };
+
+  const handleInputChange = (inputValue) => {
+    setInputValue(inputValue);
+  };
+
+  const handleSingleSymptomChange = (e) => {
+    setSingleSymptom(e.target.value);
+  };
+
+  const handleAddSingleSymptom = () => {
+    if (singleSymptom && !symptoms.includes(singleSymptom)) {
+
+      setSymptoms([...symptoms, singleSymptom]);
+      console.log(symptoms);
+      setSingleSymptom('');
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      handleAddSingleSymptom();
+    }
+  };
+
+  const handleRemoveSymptom = (symptomToRemove) => {
+    setSymptoms(symptoms.filter(symptom => symptom !== symptomToRemove));
   };
 
   const handleSubmit = (event) => {
-      event.preventDefault();
-      if (symptoms.trim() === '') {
-        alert('Please enter symptoms before submitting.');
-        return;
-      }
-
-    function normalizeSymptoms(input) {
-      return input
-        .toLowerCase()
-        .replace(/[^a-z, ]/g, '')
-        .split(',')
-        .map(symptom => symptom.trim())
-        .sort()
-        .join(', ');
+    event.preventDefault();
+    if (symptoms.length === 0) {
+      alert('Please enter symptoms before submitting.');
+      return;
     }
 
-    const normalizedSymptoms = normalizeSymptoms(symptoms);
-    const symptomArray = normalizedSymptoms.split(',').map(symptom => symptom.trim());
 
-    const matchedSymptoms = symptomArray.map(symptom => {
-      const results = fuse.search(symptom);
-      return results.length > 0 ? results[0].item : symptom;
-    });
-
-    const results = getDiseaseAdvice(matchedSymptoms);
+    const results = getDiseaseAdvice(symptoms);
     setAnalysis(results.map((result, index) => (
       <div key={index} className="mb-6">
         <h3 className="text-2xl font-bold mb-2 text-indigo-600">{result.disease}</h3>
@@ -94,22 +111,66 @@ function HealthAnalysis() {
       </div>
     )));
   };
+
   return (
-    <div className="p-6 bg-white shadow-md rounded-lg">
+    <div className="p-6 bg-white shadow-md rounded-lg relative">
       <h2 className="text-3xl font-bold mb-6 text-indigo-700">Health Analysis</h2>
       <form onSubmit={handleSubmit} className="mb-6">
-        <textarea
-          value={symptoms}
+        <Select
+          isMulti
+          options={options}
+          value={symptoms.map(symptom => ({ value: symptom, label: symptom }))}
           onChange={handleSymptomChange}
-          placeholder="Enter your symptoms here, separated by commas..."
-          rows="3"
-          cols="30"
-          className="p-3 border border-gray-300 rounded-lg w-full text-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          onInputChange={handleInputChange}
+          inputValue={inputValue}
+          placeholder="Select your symptoms..."
+          className="mb-4"
+          filterOption={(option, input) => {
+            if (input) {
+              return fuse.search(input).some(result => result.item === option.value);
+            }
+            return true;
+          }}
         />
-        <br />
+        <div className="flex mb-4">
+          <input
+            type="text"
+            value={singleSymptom}
+            onChange={handleSingleSymptomChange}
+            onKeyPress={handleKeyPress}
+            placeholder="Enter a single symptom"
+            className="flex-grow mr-2 p-2 border border-gray-300 rounded-lg"
+          />
+          <button
+            type="button"
+            onClick={handleAddSingleSymptom}
+            className="bg-indigo-500 hover:bg-indigo-600 text-white py-2 px-4 rounded-lg"
+          >
+            Add Symptom
+          </button>
+        </div>
+        <div className="mb-4">
+          <h4 className="text-lg font-semibold mb-2 text-gray-700">Added Symptoms:</h4>
+          <ul className="list-disc list-inside">
+            {symptoms.map((symptom, index) => (
+              <li key={index} className="flex items-center justify-between mb-2 bg-gray-100 rounded-lg p-2">
+                <span className="text-gray-800">{symptom}</span>
+                <button
+                  type="button"
+                  onClick={() => handleRemoveSymptom(symptom)}
+                  className="text-red-500 hover:text-red-700 focus:outline-none"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
         <button
           type="submit"
-          className="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-6 rounded-lg text-lg font-semibold transition duration-300 ease-in-out"
+          className="bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-6 rounded-lg text-lg font-semibold transition duration-300 ease-in-out"
         >
           Analyze Symptoms
         </button>
@@ -128,7 +189,7 @@ function HealthAnalysis() {
           ))}
         </ul>
       </div>
-    </div>      
+    </div>
   );
 }
 
