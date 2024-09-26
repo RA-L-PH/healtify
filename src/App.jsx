@@ -5,6 +5,7 @@ import Chatbot from "./components/pages/Chatbot";
 import HealthAnalysis from "./components/pages/HealthAnalysis";
 import Medication from "./components/pages/Medication";
 
+
 function App() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-100">
@@ -32,7 +33,9 @@ function App() {
         </nav>
       </header> 
 
-      <main className="container mx-auto flex-grow p-4">
+      <main className="flex-grow">
+          
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/chatbot" element={<Chatbot />} />

@@ -7,6 +7,7 @@ import {
 import Fuse from "fuse.js";
 import ProgressBar from "../ProgressBar";
 import Select from "react-select";
+import { FaPlus, FaTimes, FaSearch, FaStethoscope, FaPrescriptionBottleAlt, FaClipboardList, FaUserMd, FaShieldAlt } from 'react-icons/fa';
 
 function HealthAnalysis() {
   const [symptoms, setSymptoms] = useState([]);
@@ -84,10 +85,10 @@ function HealthAnalysis() {
       results.map((result, index) => (
         <div key={index} className="mb-6">
           <h3 className="text-2xl font-bold mb-2 text-indigo-600">
-            {result.disease}
+            <FaStethoscope className="inline-block mr-2" />{result.disease}
           </h3>
           <h4 className="text-lg font-semibold mb-1 text-gray-700">
-            Diagnosis
+            <FaSearch className="inline-block mr-2" />Diagnosis
           </h4>
           <p className="text-sm mb-1">
             Tests Ordered: {result.diagnosis.testsOrdered.join(", ")}
@@ -95,7 +96,9 @@ function HealthAnalysis() {
           <p className="text-sm mb-2">
             Confirmed By: {result.diagnosis.confirmedBy}
           </p>
-          <h4 className="text-lg font-semibold mb-1 text-gray-700">Symptoms</h4>
+          <h4 className="text-lg font-semibold mb-1 text-gray-700">
+            <FaClipboardList className="inline-block mr-2" />Symptoms
+          </h4>
           <ul className="list-disc list-inside mb-2">
             {result.symptoms.map((symptom, i) => (
               <li key={i} className="text-sm">
@@ -104,7 +107,7 @@ function HealthAnalysis() {
             ))}
           </ul>
           <h4 className="text-lg font-semibold mb-1 text-gray-700">
-            Prescriptions
+            <FaPrescriptionBottleAlt className="inline-block mr-2" />Prescriptions
           </h4>
           {result.prescriptions.map((prescription, i) => (
             <div key={i} className="mb-2">
@@ -114,7 +117,7 @@ function HealthAnalysis() {
             </div>
           ))}
           <h4 className="text-lg font-semibold mb-1 text-gray-700">
-            Treatment Plan
+            <FaUserMd className="inline-block mr-2" />Treatment Plan
           </h4>
           <p className="text-sm mb-1">
             Lifestyle Changes:{" "}
@@ -123,14 +126,16 @@ function HealthAnalysis() {
           <p className="text-sm mb-2">
             Therapies: {result.treatmentPlan.therapies.join(", ")}
           </p>
-          <h4 className="text-lg font-semibold mb-1 text-gray-700">Advice</h4>
+          <h4 className="text-lg font-semibold mb-1 text-gray-700">
+            <FaUserMd className="inline-block mr-2" />Advice
+          </h4>
           <p className="text-sm mb-2">{result.advice}</p>
           <h4 className="text-lg font-semibold mb-1 text-gray-700">
-            Follow-up Plan
+            <FaClipboardList className="inline-block mr-2" />Follow-up Plan
           </h4>
           <p className="text-sm mb-2">{result.followUpPlan}</p>
           <h4 className="text-lg font-semibold mb-1 text-gray-700">
-            Preventive Measures
+            <FaShieldAlt className="inline-block mr-2" />Preventive Measures
           </h4>
           <ul className="list-disc list-inside mb-2">
             {result.preventiveMeasures.map((measure, i) => (
@@ -151,7 +156,7 @@ function HealthAnalysis() {
   return (
     <div className="p-6 bg-white shadow-md rounded-lg relative">
       <h2 className="text-3xl font-bold mb-6 text-indigo-700">
-        Health Analysis
+        <FaStethoscope className="inline-block mr-2" />Health Analysis
       </h2>
       <form onSubmit={handleSubmit} className="mb-6">
         <Select
@@ -189,12 +194,12 @@ function HealthAnalysis() {
             onClick={handleAddSingleSymptom}
             className="bg-indigo-500 hover:bg-indigo-600 text-white py-2 px-4 rounded-lg"
           >
-            Add Symptom
+            <FaPlus className="inline-block mr-2" />Add Symptom
           </button>
         </div>
         <div className="mb-4">
           <h4 className="text-lg font-semibold mb-2 text-gray-700">
-            Added Symptoms:
+            <FaClipboardList className="inline-block mr-2" />Added Symptoms:
           </h4>
           <ul className="list-disc list-inside">
             {symptoms.map((symptom, index) => (
@@ -208,18 +213,7 @@ function HealthAnalysis() {
                   onClick={() => handleRemoveSymptom(symptom)}
                   className="text-red-500 hover:text-red-700 focus:outline-none"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+                  <FaTimes />
                 </button>
               </li>
             ))}
@@ -229,13 +223,13 @@ function HealthAnalysis() {
           type="submit"
           className="bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-6 rounded-lg text-lg font-semibold transition duration-300 ease-in-out"
         >
-          Analyze Symptoms
+          <FaSearch className="inline-block mr-2" />Analyze Symptoms
         </button>
       </form>
       {analysis && (
         <div className="bg-gray-50 p-6 rounded-lg shadow-inner">
           <h3 className="text-2xl font-bold mb-4 text-indigo-600">
-            Analysis Result:
+            <FaClipboardList className="inline-block mr-2" />Analysis Result:
           </h3>
           <div className="text-lg text-gray-700 whitespace-pre-wrap">
             {analysis}
@@ -244,7 +238,7 @@ function HealthAnalysis() {
       )}
       <div className="mt-8">
         <center className="text-2xl font-bold mb-4 text-indigo-600">
-          Possible Diseases
+          <FaStethoscope className="inline-block mr-2" />Possible Diseases
         </center>
         <div className="overflow-hidden">
       {/* First slider (Left to Right) */}
