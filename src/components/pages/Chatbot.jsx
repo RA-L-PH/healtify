@@ -76,10 +76,10 @@ function Chatbot() {
   };
 
   return (
-    <div className="flex h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-6 font-sans">
+    <div className="flex h-[725px] bg-gradient-to-br from-blue-50 to-indigo-100 p-6 font-sans">
       <div className="w-3/4 flex flex-col bg-white rounded-xl shadow-2xl overflow-hidden">
         <div className="bg-blue-600 p-4 text-white">
-          <h2 className="text-2xl font-bold">AI Assistant</h2>
+          <center className="text-2xl font-bold">Heatlh AI Assistant</center>
         </div>
         <div className="flex-grow overflow-y-auto p-6 space-y-6">
           {conversation.length === 0 ? (
@@ -149,7 +149,7 @@ function Chatbot() {
                 <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white"></div>
               ) : (
                 <>
-                  Ask <IoMdSend className="w-6 h-6" />
+                  Ask <IoMdSend className="font-bold w-6 h-6" />
                 </>
               )}
             </Button>

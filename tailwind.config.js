@@ -7,6 +7,21 @@ export default {
   ],
   theme: {
   	extend: {
+		keyframes: {
+			slideLeft: {
+			  '0%': { transform: 'translateX(100%)' },
+			  '100%': { transform: 'translateX(-100%)' },
+			},
+			slideRight: {
+			  '0%': { transform: 'translateX(-100%)' },
+			  '100%': { transform: 'translateX(100%)' },
+			},
+		  },
+		  animation: {
+			slideLeft: 'slideLeft 40s linear infinite',
+			slideRight: 'slideRight 40s linear infinite',
+		  },
+
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',

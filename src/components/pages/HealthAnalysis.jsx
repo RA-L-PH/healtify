@@ -1,17 +1,21 @@
-import { useEffect, useRef, useState } from 'react';
-import { getDiseaseAdvice, getAllDiseases, getSymptomsList } from '../../api/healthApi';
-import Fuse from 'fuse.js';
-import ProgressBar from '../ProgressBar';
-import Select from 'react-select';
+import { useEffect, useRef, useState } from "react";
+import {
+  getDiseaseAdvice,
+  getAllDiseases,
+  getSymptomsList,
+} from "../../api/healthApi";
+import Fuse from "fuse.js";
+import ProgressBar from "../ProgressBar";
+import Select from "react-select";
 
 function HealthAnalysis() {
   const [symptoms, setSymptoms] = useState([]);
-  const [analysis, setAnalysis] = useState('');
+  const [analysis, setAnalysis] = useState("");
   const [diseases, setDiseases] = useState([]);
   const [fuse, setFuse] = useState(null);
   const [options, setOptions] = useState([]);
-  const [inputValue, setInputValue] = useState('');
-  const [singleSymptom, setSingleSymptom] = useState('');
+  const [inputValue, setInputValue] = useState("");
+  const [singleSymptom, setSingleSymptom] = useState("");
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -26,14 +30,18 @@ function HealthAnalysis() {
         minMatchCharLength: 1,
       });
       setFuse(fuseInstance);
-      setOptions(allSymptoms.map(symptom => ({ value: symptom, label: symptom })));
+      setOptions(
+        allSymptoms.map((symptom) => ({ value: symptom, label: symptom }))
+      );
     };
 
     fetchDiseasesAndSymptoms();
   }, []);
 
   const handleSymptomChange = (selectedOptions) => {
-    const selectedSymptoms = selectedOptions ? selectedOptions.map(option => option.value) : [];
+    const selectedSymptoms = selectedOptions
+      ? selectedOptions.map((option) => option.value)
+      : [];
     setSymptoms(selectedSymptoms);
   };
 
@@ -47,79 +55,112 @@ function HealthAnalysis() {
 
   const handleAddSingleSymptom = () => {
     if (singleSymptom && !symptoms.includes(singleSymptom)) {
-
       setSymptoms([...symptoms, singleSymptom]);
       console.log(symptoms);
-      setSingleSymptom('');
+      setSingleSymptom("");
     }
   };
 
   const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       e.preventDefault();
       handleAddSingleSymptom();
     }
   };
 
   const handleRemoveSymptom = (symptomToRemove) => {
-    setSymptoms(symptoms.filter(symptom => symptom !== symptomToRemove));
+    setSymptoms(symptoms.filter((symptom) => symptom !== symptomToRemove));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (symptoms.length === 0) {
-      alert('Please enter symptoms before submitting.');
+      alert("Please enter symptoms before submitting.");
       return;
     }
 
-
     const results = getDiseaseAdvice(symptoms);
-    setAnalysis(results.map((result, index) => (
-      <div key={index} className="mb-6">
-        <h3 className="text-2xl font-bold mb-2 text-indigo-600">{result.disease}</h3>
-        <h4 className="text-lg font-semibold mb-1 text-gray-700">Diagnosis</h4>
-        <p className="text-sm mb-1">Tests Ordered: {result.diagnosis.testsOrdered.join(', ')}</p>
-        <p className="text-sm mb-2">Confirmed By: {result.diagnosis.confirmedBy}</p>
-        <h4 className="text-lg font-semibold mb-1 text-gray-700">Symptoms</h4>
-        <ul className="list-disc list-inside mb-2">
-          {result.symptoms.map((symptom, i) => (
-            <li key={i} className="text-sm">{symptom}</li>
+    setAnalysis(
+      results.map((result, index) => (
+        <div key={index} className="mb-6">
+          <h3 className="text-2xl font-bold mb-2 text-indigo-600">
+            {result.disease}
+          </h3>
+          <h4 className="text-lg font-semibold mb-1 text-gray-700">
+            Diagnosis
+          </h4>
+          <p className="text-sm mb-1">
+            Tests Ordered: {result.diagnosis.testsOrdered.join(", ")}
+          </p>
+          <p className="text-sm mb-2">
+            Confirmed By: {result.diagnosis.confirmedBy}
+          </p>
+          <h4 className="text-lg font-semibold mb-1 text-gray-700">Symptoms</h4>
+          <ul className="list-disc list-inside mb-2">
+            {result.symptoms.map((symptom, i) => (
+              <li key={i} className="text-sm">
+                {symptom}
+              </li>
+            ))}
+          </ul>
+          <h4 className="text-lg font-semibold mb-1 text-gray-700">
+            Prescriptions
+          </h4>
+          {result.prescriptions.map((prescription, i) => (
+            <div key={i} className="mb-2">
+              <p className="text-sm font-medium">Name: {prescription.name}</p>
+              <p className="text-sm">Dosage: {prescription.dosage}</p>
+              <p className="text-sm">Purpose: {prescription.purpose}</p>
+            </div>
           ))}
-        </ul>
-        <h4 className="text-lg font-semibold mb-1 text-gray-700">Prescriptions</h4>
-        {result.prescriptions.map((prescription, i) => (
-          <div key={i} className="mb-2">
-            <p className="text-sm font-medium">Name: {prescription.name}</p>
-            <p className="text-sm">Dosage: {prescription.dosage}</p>
-            <p className="text-sm">Purpose: {prescription.purpose}</p>
-          </div>
-        ))}
-        <h4 className="text-lg font-semibold mb-1 text-gray-700">Treatment Plan</h4>
-        <p className="text-sm mb-1">Lifestyle Changes: {result.treatmentPlan.lifestyleChanges.join(', ')}</p>
-        <p className="text-sm mb-2">Therapies: {result.treatmentPlan.therapies.join(', ')}</p>
-        <h4 className="text-lg font-semibold mb-1 text-gray-700">Advice</h4>
-        <p className="text-sm mb-2">{result.advice}</p>
-        <h4 className="text-lg font-semibold mb-1 text-gray-700">Follow-up Plan</h4>
-        <p className="text-sm mb-2">{result.followUpPlan}</p>
-        <h4 className="text-lg font-semibold mb-1 text-gray-700">Preventive Measures</h4>
-        <ul className="list-disc list-inside mb-2">
-          {result.preventiveMeasures.map((measure, i) => (
-            <li key={i} className="text-sm">{measure}</li>
-          ))}
-        </ul>
-        <ProgressBar percentage={result.matchPercentage} />
-      </div>
-    )));
+          <h4 className="text-lg font-semibold mb-1 text-gray-700">
+            Treatment Plan
+          </h4>
+          <p className="text-sm mb-1">
+            Lifestyle Changes:{" "}
+            {result.treatmentPlan.lifestyleChanges.join(", ")}
+          </p>
+          <p className="text-sm mb-2">
+            Therapies: {result.treatmentPlan.therapies.join(", ")}
+          </p>
+          <h4 className="text-lg font-semibold mb-1 text-gray-700">Advice</h4>
+          <p className="text-sm mb-2">{result.advice}</p>
+          <h4 className="text-lg font-semibold mb-1 text-gray-700">
+            Follow-up Plan
+          </h4>
+          <p className="text-sm mb-2">{result.followUpPlan}</p>
+          <h4 className="text-lg font-semibold mb-1 text-gray-700">
+            Preventive Measures
+          </h4>
+          <ul className="list-disc list-inside mb-2">
+            {result.preventiveMeasures.map((measure, i) => (
+              <li key={i} className="text-sm">
+                {measure}
+              </li>
+            ))}
+          </ul>
+          <ProgressBar percentage={result.matchPercentage} />
+        </div>
+      ))
+    );
   };
+
+  const firstHalf = diseases.slice(0, Math.ceil(diseases.length / 2));
+  const secondHalf = diseases.slice(Math.ceil(diseases.length / 2));
 
   return (
     <div className="p-6 bg-white shadow-md rounded-lg relative">
-      <h2 className="text-3xl font-bold mb-6 text-indigo-700">Health Analysis</h2>
+      <h2 className="text-3xl font-bold mb-6 text-indigo-700">
+        Health Analysis
+      </h2>
       <form onSubmit={handleSubmit} className="mb-6">
         <Select
           isMulti
           options={options}
-          value={symptoms.map(symptom => ({ value: symptom, label: symptom }))}
+          value={symptoms.map((symptom) => ({
+            value: symptom,
+            label: symptom,
+          }))}
           onChange={handleSymptomChange}
           onInputChange={handleInputChange}
           inputValue={inputValue}
@@ -127,7 +168,9 @@ function HealthAnalysis() {
           className="mb-4"
           filterOption={(option, input) => {
             if (input) {
-              return fuse.search(input).some(result => result.item === option.value);
+              return fuse
+                .search(input)
+                .some((result) => result.item === option.value);
             }
             return true;
           }}
@@ -150,18 +193,32 @@ function HealthAnalysis() {
           </button>
         </div>
         <div className="mb-4">
-          <h4 className="text-lg font-semibold mb-2 text-gray-700">Added Symptoms:</h4>
+          <h4 className="text-lg font-semibold mb-2 text-gray-700">
+            Added Symptoms:
+          </h4>
           <ul className="list-disc list-inside">
             {symptoms.map((symptom, index) => (
-              <li key={index} className="flex items-center justify-between mb-2 bg-gray-100 rounded-lg p-2">
+              <li
+                key={index}
+                className="flex items-center justify-between mb-2 bg-gray-100 rounded-lg p-2"
+              >
                 <span className="text-gray-800">{symptom}</span>
                 <button
                   type="button"
                   onClick={() => handleRemoveSymptom(symptom)}
                   className="text-red-500 hover:text-red-700 focus:outline-none"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                 </button>
               </li>
@@ -177,17 +234,37 @@ function HealthAnalysis() {
       </form>
       {analysis && (
         <div className="bg-gray-50 p-6 rounded-lg shadow-inner">
-          <h3 className="text-2xl font-bold mb-4 text-indigo-600">Analysis Result:</h3>
-          <div className="text-lg text-gray-700 whitespace-pre-wrap">{analysis}</div>
+          <h3 className="text-2xl font-bold mb-4 text-indigo-600">
+            Analysis Result:
+          </h3>
+          <div className="text-lg text-gray-700 whitespace-pre-wrap">
+            {analysis}
+          </div>
         </div>
       )}
       <div className="mt-8">
-        <h3 className="text-2xl font-bold mb-4 text-indigo-600">Possible Diseases:</h3>
-        <ul className="list-disc list-inside space-y-2">
-          {diseases.map((disease, index) => (
-            <li key={index} className="text-lg text-gray-700">{disease}</li>
-          ))}
-        </ul>
+        <center className="text-2xl font-bold mb-4 text-indigo-600">
+          Possible Diseases
+        </center>
+        <div className="overflow-hidden">
+      {/* First slider (Left to Right) */}
+      <ul className="flex space-x-4 animate-slideLeft">
+        {firstHalf.map((disease, index) => (
+          <li key={index} className="text-lg text-gray-700 whitespace-nowrap">
+            {disease} {index < firstHalf.length - 1 && <span>|</span>}
+          </li>
+        ))}
+      </ul>
+
+      {/* Second slider (Right to Left) */}
+      <ul className="flex space-x-4 animate-slideRight mt-4">
+        {secondHalf.map((disease, index) => (
+          <li key={index} className="text-lg text-gray-700 whitespace-nowrap">
+            {disease} {index < secondHalf.length - 1 && <span>|</span>}
+          </li>
+        ))}
+      </ul>
+    </div>
       </div>
     </div>
   );
