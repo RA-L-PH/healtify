@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { IoMdSend } from "react-icons/io";
-import { FaCopy, FaCheck } from "react-icons/fa";
+import { FaCopy, FaCheck, FaUser, FaRobot, FaInfoCircle, FaExclamationTriangle } from "react-icons/fa";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import ReactMarkdown from 'react-markdown';
 import Spline from '@splinetool/react-spline';
 
@@ -72,35 +75,46 @@ function Chatbot() {
   };
 
   const getCopyIcon = (index) => {
-    return copiedIndex === index ? <FaCheck /> : <FaCopy />;
+    return copiedIndex === index ? <FaCheck className="text-green-500" /> : <FaCopy />;
   };
 
   return (
-    <div className="flex h-[725px] bg-gradient-to-br from-blue-50 to-indigo-100 p-6 font-sans">
+    <Card className="flex h-[725px] bg-gradient-to-br from-blue-50 to-indigo-100 p-6 font-sans">
       <div className="w-3/4 flex flex-col bg-white rounded-xl shadow-2xl overflow-hidden">
-        <div className="bg-blue-600 p-4 text-white">
-          <center className="text-2xl font-bold">Heatlh AI Assistant</center>
-        </div>
-        <div className="flex-grow overflow-y-auto p-6 space-y-6">
+        <CardHeader className="bg-blue-600 p-4 text-white flex items-center justify-between">
+          <h2 className="text-2xl font-bold text-center flex items-center">
+            <FaRobot className="mr-2" /> Health AI Assistant
+          </h2>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <button className="text-white hover:text-blue-200 transition-colors">
+                  <FaInfoCircle className="w-5 h-5" />
+                </button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Ask me anything about health!</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        </CardHeader>
+        <CardContent className="flex-grow overflow-y-auto p-6 space-y-6">
           {conversation.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-full text-gray-500">
-              <svg className="w-16 h-16 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-              </svg>
+              <FaExclamationTriangle className="w-16 h-16 mb-4 text-blue-500" />
               <p className="text-xl font-semibold">No messages yet</p>
               <p className="text-sm mt-2">Start a conversation by typing a message below.</p>
             </div>
           ) : (
             conversation.map((message, index) => (
-              message.type === 'user' ? (
-                <div key={index} className="flex justify-end">
-                  <div className="bg-blue-500 text-white p-4 rounded-2xl max-w-[70%] self-end shadow-md">
-                    <p className="font-medium">{message.text}</p>
-                  </div>
-                </div>
-              ) : (
-                <div key={index} className="flex justify-start">
-                  <div className="bg-gray-100 p-4 rounded-2xl max-w-[70%] self-start shadow-md relative">
+              <div key={index} className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}>
+                <div className={`flex items-start space-x-2 ${message.type === 'user' ? 'flex-row-reverse' : ''}`}>
+                  <Avatar>
+                    <AvatarFallback>{message.type === 'user' ? <FaUser className="text-blue-500" /> : <FaRobot className="text-green-500" />}</AvatarFallback>
+                  </Avatar>
+                  <div className={`p-4 rounded-2xl max-w-[70%] shadow-md relative ${
+                    message.type === 'user' ? 'bg-blue-500 text-white' : 'bg-gray-100'
+                  }`}>
                     {message.text === '...' ? (
                       <div className="animate-pulse flex space-x-4">
                         <div className="flex-1 space-y-4 py-1">
@@ -114,23 +128,34 @@ function Chatbot() {
                     ) : (
                       <>
                         <ReactMarkdown className="text-gray-800 leading-relaxed prose">{message.text}</ReactMarkdown>
-                        <button 
-                          onClick={() => copyToClipboard(message.text, index)}
-                          className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
-                        >
-                          {getCopyIcon(index)}
-                        </button>
+                        {message.type === 'bot' && (
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <button 
+                                  onClick={() => copyToClipboard(message.text, index)}
+                                  className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 transition-colors"
+                                >
+                                  {getCopyIcon(index)}
+                                </button>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>{copiedIndex === index ? 'Copied!' : 'Copy to clipboard'}</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        )}
                       </>
                     )}
                   </div>
                 </div>
-              )
+              </div>
             ))
           )}
-        </div>
+        </CardContent>
 
-        <div className="p-4 bg-gray-50">
-          <div className="flex items-center justify-between space-x-4">
+        <CardFooter className="p-4 bg-gray-50">
+          <div className="flex items-center justify-between space-x-4 w-full">
             <Input
               type="text"
               placeholder="How may I help you today?"
@@ -154,7 +179,7 @@ function Chatbot() {
               )}
             </Button>
           </div>
-        </div>
+        </CardFooter>
       </div>
 
       <div className="w-1/4 relative ml-6">
@@ -162,7 +187,7 @@ function Chatbot() {
           <Spline scene="https://prod.spline.design/zSG1LwNFGGxPqdfy/scene.splinecode" />
         </div>
       </div>
-    </div>
+    </Card>
   );
 }
 
