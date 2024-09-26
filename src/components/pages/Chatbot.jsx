@@ -58,18 +58,18 @@ function Chatbot() {
   };
 
   return (
-    <div className="flex flex-col h-screen p-4">
-      <div className="flex-grow overflow-y-auto bg-gray-100 p-4 rounded-lg space-y-4">
+    <div className="flex flex-col h-screen p-4 font-sans">
+      <div className="flex-grow overflow-y-auto bg-gray-100 p-4 rounded-lg space-y-4 shadow-inner">
         {conversation.map((message, index) => (
           message.type === 'user' ? (
             <div key={index} className="flex justify-end">
-              <div className="bg-blue-100 p-3 rounded-lg max-w-[60%] self-end">
-                <p>{message.text}</p>
+              <div className="bg-blue-200 p-4 rounded-lg max-w-[70%] self-end shadow-md">
+                <p className="text-blue-900 font-medium">{message.text}</p>
               </div>
             </div>
           ) : (
             <div key={index} className="flex justify-start">
-              <div className="bg-white p-3 rounded-lg max-w-[60%] self-start">
+              <div className="bg-white p-4 rounded-lg max-w-[70%] self-start shadow-md">
                 {message.text === '...' ? (
                   <div className="animate-pulse flex space-x-4">
                     <div className="flex-1 space-y-4 py-1">
@@ -81,7 +81,7 @@ function Chatbot() {
                     </div>
                   </div>
                 ) : (
-                  <ReactMarkdown>{message.text}</ReactMarkdown>
+                  <ReactMarkdown className="text-gray-800 leading-relaxed">{message.text}</ReactMarkdown>
                 )}
               </div>
             </div>
@@ -90,26 +90,26 @@ function Chatbot() {
       </div>
 
       {/* Fixed Input Section */}
-      <div className="w-[95%] p-2 bg-white border-t flex items-center justify-between space-x-5 fixed bottom-0 left-0 right-0 m-3 shadow-lg">
+      <div className="w-[95%] p-3 bg-white border-t flex items-center justify-between space-x-5 fixed bottom-0 left-0 right-0 m-3 shadow-lg rounded-lg">
         <Input
           type="text"
-          placeholder="How may I help You today?"
+          placeholder="How may I help you today?"
           value={userInput}
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
-          className="h-12 w-full"
+          className="h-12 w-full text-lg focus:ring-2 focus:ring-blue-300"
         />
         <Button
           variant="outline"
-          className="flex justify-center items-center text-lg font-semibold cursor-pointer w-18 h-12 gap-2"
+          className="flex justify-center items-center text-lg font-semibold cursor-pointer w-24 h-12 gap-2 bg-blue-500 text-white hover:bg-blue-600 transition duration-300 ease-in-out rounded-lg"
           onClick={generateAnswer}
           disabled={isLoading}
         >
           {isLoading ? (
-            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-gray-900"></div>
+            <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white"></div>
           ) : (
             <>
-              Ask <IoMdSend className="w-5 h-5" />
+              Ask <IoMdSend className="w-6 h-6" />
             </>
           )}
         </Button>

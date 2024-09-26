@@ -31,19 +31,19 @@ function App() {
   };
 
   return (
-    <div className="max-w-lg mx-auto p-6">
-      <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
+    <div className="max-w-4xl mx-auto p-8 bg-gray-50 rounded-lg shadow-md">
+      <form onSubmit={handleSubmit} className="flex flex-col space-y-6">
         <input 
           type="text" 
           value={disease} 
           onChange={(e) => setDisease(e.target.value)} 
           placeholder="Disease" 
-          className="p-2 border border-gray-300 rounded"
+          className="p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-sans text-lg"
         />
         <select 
           value={gender} 
           onChange={(e) => setGender(e.target.value)} 
-          className="p-2 border border-gray-300 rounded"
+          className="p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-sans text-lg"
         >
           <option value="">Select Gender</option>
           <option value="Male">Male</option>
@@ -55,32 +55,31 @@ function App() {
           value={age} 
           onChange={(e) => setAge(e.target.value)} 
           placeholder="Age" 
-          className="p-2 border border-gray-300 rounded"
+          className="p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-sans text-lg"
         />
         <input 
           type="text" 
           value={country} 
           onChange={(e) => setCountry(e.target.value)} 
           placeholder="Country" 
-          className="p-2 border border-gray-300 rounded"
+          className="p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-sans text-lg"
         />
         <button 
           type="submit" 
-          className="p-2 bg-blue-500 text-white rounded hover:bg-blue-700"
+          className="p-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300 ease-in-out font-sans text-lg font-semibold"
         >
           Get Medication Recommendation
         </button>
       </form>
       {loading ? (
-        <p className="mt-4">Loading...</p>
-      ) : (
+        <p className="mt-6 text-center text-lg font-semibold text-gray-700">Loading...</p>
+      ) : apiData ? (
         <div 
-          className="mt-4 p-4 border border-gray-300 rounded bg-gray-100"
-          dangerouslySetInnerHTML={{ __html: apiData }}
+          className="mt-6 p-6 border border-gray-300 rounded-lg bg-white shadow-sm"
+          dangerouslySetInnerHTML={{ __html: apiData.replace(/|/g, '') }}
         />
-      )}
+      ) : null}
     </div>
   );
 }
-
 export default App;

@@ -58,49 +58,77 @@ function HealthAnalysis() {
 
     const results = getDiseaseAdvice(matchedSymptoms);
     setAnalysis(results.map((result, index) => (
-      <div key={index} className="mb-4">
-        <h3 className="text-lg font-semibold">{result.disease}</h3>
-        <p>{result.advice}</p>
-        <ProgressBar percentage={result.matchPercentage} /> {/* Display the progress bar */}
+      <div key={index} className="mb-6">
+        <h3 className="text-2xl font-bold mb-2 text-indigo-600">{result.disease}</h3>
+        <h4 className="text-lg font-semibold mb-1 text-gray-700">Diagnosis</h4>
+        <p className="text-sm mb-1">Tests Ordered: {result.diagnosis.testsOrdered.join(', ')}</p>
+        <p className="text-sm mb-2">Confirmed By: {result.diagnosis.confirmedBy}</p>
+        <h4 className="text-lg font-semibold mb-1 text-gray-700">Symptoms</h4>
+        <ul className="list-disc list-inside mb-2">
+          {result.symptoms.map((symptom, i) => (
+            <li key={i} className="text-sm">{symptom}</li>
+          ))}
+        </ul>
+        <h4 className="text-lg font-semibold mb-1 text-gray-700">Prescriptions</h4>
+        {result.prescriptions.map((prescription, i) => (
+          <div key={i} className="mb-2">
+            <p className="text-sm font-medium">Name: {prescription.name}</p>
+            <p className="text-sm">Dosage: {prescription.dosage}</p>
+            <p className="text-sm">Purpose: {prescription.purpose}</p>
+          </div>
+        ))}
+        <h4 className="text-lg font-semibold mb-1 text-gray-700">Treatment Plan</h4>
+        <p className="text-sm mb-1">Lifestyle Changes: {result.treatmentPlan.lifestyleChanges.join(', ')}</p>
+        <p className="text-sm mb-2">Therapies: {result.treatmentPlan.therapies.join(', ')}</p>
+        <h4 className="text-lg font-semibold mb-1 text-gray-700">Advice</h4>
+        <p className="text-sm mb-2">{result.advice}</p>
+        <h4 className="text-lg font-semibold mb-1 text-gray-700">Follow-up Plan</h4>
+        <p className="text-sm mb-2">{result.followUpPlan}</p>
+        <h4 className="text-lg font-semibold mb-1 text-gray-700">Preventive Measures</h4>
+        <ul className="list-disc list-inside mb-2">
+          {result.preventiveMeasures.map((measure, i) => (
+            <li key={i} className="text-sm">{measure}</li>
+          ))}
+        </ul>
+        <ProgressBar percentage={result.matchPercentage} />
       </div>
     )));
   };
-
   return (
-    <div className="p-4">
-      <h2 className="text-xl font-bold mb-4">Health Analysis</h2>
-      <form onSubmit={handleSubmit} className="mb-4">
+    <div className="p-6 bg-white shadow-md rounded-lg">
+      <h2 className="text-3xl font-bold mb-6 text-indigo-700">Health Analysis</h2>
+      <form onSubmit={handleSubmit} className="mb-6">
         <textarea
           value={symptoms}
           onChange={handleSymptomChange}
           placeholder="Enter your symptoms here, separated by commas..."
-          rows="1"
+          rows="3"
           cols="30"
-          className="p-2 border border-gray-300 rounded-md w-full"
+          className="p-3 border border-gray-300 rounded-lg w-full text-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
         <br />
         <button
           type="submit"
-          className="mt-2 bg-blue-500 text-white py-2 px-4 rounded-md"
+          className="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-6 rounded-lg text-lg font-semibold transition duration-300 ease-in-out"
         >
           Analyze Symptoms
         </button>
       </form>
       {analysis && (
-        <div className="bg-gray-100 p-4 rounded-md">
-          <h3 className="text-lg font-semibold">Analysis Result:</h3>
-          <pre className="whitespace-pre-wrap">{analysis}</pre>
+        <div className="bg-gray-50 p-6 rounded-lg shadow-inner">
+          <h3 className="text-2xl font-bold mb-4 text-indigo-600">Analysis Result:</h3>
+          <div className="text-lg text-gray-700 whitespace-pre-wrap">{analysis}</div>
         </div>
       )}
-      <div className="mt-4">
-        <h3 className="text-lg font-semibold">Possible Diseases:</h3>
-        <ul className="list-disc list-inside">
+      <div className="mt-8">
+        <h3 className="text-2xl font-bold mb-4 text-indigo-600">Possible Diseases:</h3>
+        <ul className="list-disc list-inside space-y-2">
           {diseases.map((disease, index) => (
-            <li key={index}>{disease}</li>
+            <li key={index} className="text-lg text-gray-700">{disease}</li>
           ))}
         </ul>
       </div>
-    </div>
+    </div>      
   );
 }
 
