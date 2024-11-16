@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { FaVirus, FaVenusMars, FaBirthdayCake, FaGlobeAmericas, FaPrescriptionBottleAlt } from 'react-icons/fa';
-import tabletImage from '../../assets/tablet.png';
+// import tabletImage from '../../assets/tablet.png';
 
 function App() {
   const [loading, setLoading] = useState(false);
