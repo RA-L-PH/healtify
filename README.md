@@ -102,17 +102,17 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ## Screenshots
 ### Home Page
-![Home Page](/Screenshot 2024-11-16 111845.png)
-![Home Page](/Screenshot 2024-11-16 111852.png)
+![Home Page 1](/Screenshot%202024-11-16%20111845.png)
+![Home Page 2](/Screenshot%202024-11-16%20111852.png)
 
 ### Chatbot Interface
-![Chatbot Interface](/Screenshot 2024-11-16 111907.png)
+![Chatbot Page](/Screenshot%202024-11-16%20111907.png)
 
 ### Health Analysis
-![Health Analysis](/Screenshot 2024-11-16 111917.png)
+![Health Analysis](/Screenshot%202024-11-16%20111917.png)
 
 ### Medication Guide
-![Medication Guide](/Screenshot 2024-11-16 111927.png)
+![Medication Guide](/Screenshot%202024-11-16%20111927.png)
 
 ### Credits
 This project was built by [Alister Fernandes](https://github.com/Alister1210).
